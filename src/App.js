@@ -1,5 +1,13 @@
+import { ThemeProvider } from 'styled-components';
+import Routes from './Routes';
+import { lightTheme } from './styles/theme';
+
 function App() {
-  return <div className="App">App</div>;
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <Routes />
+    </ThemeProvider>
+  );
 }
 
 export default App;
