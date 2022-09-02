@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components';
-import Routes from './Routes';
+import Router from './Routes';
 import { lightTheme } from './styles/theme';
 
 function App() {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Routes />
+      <Router />
     </ThemeProvider>
   );
 }

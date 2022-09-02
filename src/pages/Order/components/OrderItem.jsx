@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 const OrderItem = () => {
   return (
-    <InputBox>
-      <InputWrapper>
-        <Input></Input>
-      </InputWrapper>
-    </InputBox>
+    <>OrderItem</>
+    // <InputBox>
+    //   <InputWrapper>
+    //     <Input></Input>
+    //   </InputWrapper>
+    // </InputBox>
   );
 };
 

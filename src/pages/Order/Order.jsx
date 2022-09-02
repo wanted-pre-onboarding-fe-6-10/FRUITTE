@@ -2,9 +2,11 @@ import OrderItem from './components/OrderItem';
 
 const Order = () => {
   return (
-    <Container>
+    // <Container>
+    <>
       <OrderItem />
-    </Container>
+    </>
+    // </Container>
   );
 };
 

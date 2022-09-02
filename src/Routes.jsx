@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Footer from './components/common/Footer';
-import Nav from './components/common/Nav';
+import Footer from './components/Footer';
+import Nav from './components/Nav';
 import Order from './pages/Order/Order';
 
-const Routes = () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
@@ -15,4 +15,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default Router;
