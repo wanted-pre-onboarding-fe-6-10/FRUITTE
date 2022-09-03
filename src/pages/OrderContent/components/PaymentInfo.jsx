@@ -1,7 +1,7 @@
 import OrderInfo from './OrderInfo';
 import styled from 'styled-components';
 
-const PaymentInfo = () => {
+const PaymentWrapper = () => {
   return (
     <PaymentBox>
       <OrderInfo title="결제방식" />
@@ -14,8 +14,9 @@ const PaymentInfo = () => {
 
 const PaymentBox = styled.div`
   width: 30%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-export default PaymentInfo;
+export default PaymentWrapper;

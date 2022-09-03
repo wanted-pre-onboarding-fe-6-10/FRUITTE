@@ -15,10 +15,12 @@ const DeliveryInfo = () => {
 
 const RedirectButton = styled.button`
   background-color: ${props => props.theme.ownColor};
+  color: ${props => props.theme.boxColor};
 `;
 
 const DeliveryBox = styled.div`
   width: 30%;
+  height: 70%;
   display: flex;
   flex-direction: column;
 `;
