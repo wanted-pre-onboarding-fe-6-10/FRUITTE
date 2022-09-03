@@ -3,7 +3,11 @@ import styled from 'styled-components';
 const BreadcrumbHeader = () => {
   return (
     <Box>
-      <Wrapper>BreadcrumbHeader</Wrapper>
+      <Wrapper>
+        <a href="/">Home</a>
+        {' > '}
+        <a href="/fruitstore">FRUITTE STORE</a>
+      </Wrapper>
     </Box>
   );
 };

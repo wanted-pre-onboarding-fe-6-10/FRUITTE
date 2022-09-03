@@ -9,13 +9,18 @@ const GoodsDetailTab = () => {
 
   return (
     <Box>
-      <Tab />
+      <Tabs>
+        <Tab>상세정보</Tab>
+        <Tab>구매평({})</Tab>
+        <Tab>Q&A({})</Tab>
+      </Tabs>
       {focus === 0 ? <GoodsInfo /> : focus === 1 ? <GoodsReview /> : <GoodsQna />}
     </Box>
   );
 };
 
 const Box = styled.div``;
+const Tabs = styled.div``;
 const Tab = styled.div``;
 
 export default GoodsDetailTab;

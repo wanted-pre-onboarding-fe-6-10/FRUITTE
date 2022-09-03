@@ -1,14 +1,24 @@
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
 const GoodsQna = () => {
   return (
-    <Box>
-      <Wrapper>GoodsQna</Wrapper>
-    </Box>
+    <Wrapper>
+      <SubTitle>Q&A({})</SubTitle>
+      <HelperText></HelperText>
+      <Button></Button>
+      <Button></Button>
+      <List></List>
+    </Wrapper>
   );
 };
 
-const Box = styled.div``;
 const Wrapper = styled.div``;
+
+const SubTitle = styled.div``;
+
+const HelperText = styled.div``;
+
+const List = styled.div``;
 
 export default GoodsQna;

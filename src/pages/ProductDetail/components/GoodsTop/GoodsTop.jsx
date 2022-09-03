@@ -2,15 +2,20 @@ import styled from 'styled-components';
 import GoodsForm from './GoodsForm';
 import GoodsImages from './GoodsImages';
 
-const GoodsTop = () => {
+const GoodsTop = ({ data }) => {
   return (
     <Box>
       <GoodsImages />
-      <GoodsForm />
+      <GoodsForm data={data} />
     </Box>
   );
 };
 
-const Box = styled.div``;
+const Box = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* width: 100%; */
+  justify-content: space-around;
+`;
 
 export default GoodsTop;
