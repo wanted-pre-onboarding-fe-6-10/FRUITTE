@@ -10,7 +10,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Order />} />
-        <Route path="/fruitstore" element={<ProductDetail />} />
+        <Route path="/fruitstore/:idx" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

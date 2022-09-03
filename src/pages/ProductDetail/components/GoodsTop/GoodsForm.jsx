@@ -5,23 +5,31 @@ const GoodsForm = ({ data }) => {
   return (
     <Wrapper>
       <GoodsName>{data.title}</GoodsName>
-      <Labels>{data.status.map((item, idx) => {})}</Labels>
+      {/* <Labels>{data.status.map((item, idx) => {})}</Labels> */}
       <Row>
         <DiscountPrice>{data.discount}</DiscountPrice>
         <Price>{data.price}</Price>
       </Row>
-      <Summary>{data.description}</Summary>
-      <Info>원산지: {data.origin}</Info>
-      <Info>배송 방법: {data.delivery_method}</Info>
-      <Info>배송비: {data.delivery_fee}</Info>
-      <Info>배송 안내: {data.delivery_announcement}</Info>
+      <Summary>{data.description.join(`\n`)}</Summary>
+      <Info>
+        <b>원산지:</b> {data.origin}
+      </Info>
+      <Info>
+        <b>배송 방법:</b> {data.delivery_method}
+      </Info>
+      <Info>{data.delivery_fee > 0 ? `배송비: ${data.delivery_fee}` : null}</Info>
+      <Info>
+        <b>배송 안내:</b> {data.delivery_announcement}
+      </Info>
       <Dropdown />
       <ButtonWrapper>
-        <Button />
-        <Button />
-        <Button />
-        <Button />
-        <Button />
+        <Button>구매하기</Button>
+        <Button>장바구니</Button>
+        <Button>하트아이콘(개수){}</Button>
+      </ButtonWrapper>
+      <ButtonWrapper>
+        <Button>네이버wrapper</Button>
+        <Button>네이버wrapper</Button>
       </ButtonWrapper>
     </Wrapper>
   );
@@ -33,7 +41,10 @@ const GoodsName = styled.div``;
 
 const Labels = styled.div``;
 
-const Row = styled.div``;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 const DiscountPrice = styled.div``;
 
