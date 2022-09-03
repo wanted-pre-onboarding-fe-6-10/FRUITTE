@@ -1,13 +1,13 @@
-import OrderInfo from './OrderInfo';
+import Info from './Info';
 import styled from 'styled-components';
 
 const DeliveryInfo = () => {
   return (
     <DeliveryBox>
-      <OrderInfo title="수령인" />
-      <OrderInfo title="배송지" />
-      <OrderInfo title="배송방법" />
-      <OrderInfo title="배송메모" />
+      <Info title="수령인" />
+      <Info title="배송지" />
+      <Info title="배송방법" />
+      <Info title="배송메모" />
       <RedirectButton>홈으로</RedirectButton>
     </DeliveryBox>
   );

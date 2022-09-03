@@ -1,13 +1,13 @@
-import OrderInfo from './OrderInfo';
+import Info from './Info';
 import styled from 'styled-components';
 
-const PaymentWrapper = () => {
+const PaymentInfo = () => {
   return (
     <PaymentBox>
-      <OrderInfo title="결제방식" />
-      <OrderInfo title="카드정보" />
-      <OrderInfo title="입금계좌" />
-      <OrderInfo title="결제금액" />
+      <Info title="결제방식" />
+      <Info title="카드정보" />
+      <Info title="입금계좌" />
+      <Info title="결제금액" />
     </PaymentBox>
   );
 };
@@ -19,4 +19,4 @@ const PaymentBox = styled.div`
   flex-direction: column;
 `;
 
-export default PaymentWrapper;
+export default PaymentInfo;
