@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const OrderInfo = ({ title }) => {
+const Info = ({ title }) => {
   return (
     <InfoWrapper>
       <InfoTitle>{title}</InfoTitle>
@@ -25,4 +25,4 @@ const InfoText = styled.h1`
   color: ${props => props.theme.textColor};
 `;
 
-export default OrderInfo;
+export default Info;
