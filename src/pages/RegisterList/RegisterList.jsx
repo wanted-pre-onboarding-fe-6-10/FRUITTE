@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { HiOutlineTrash } from 'react-icons/hi';
-import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 import styled from 'styled-components';
 import OptionTr from './components/OptionTr';
 import TdEL from './components/TdStyle';
@@ -64,22 +63,51 @@ const RegisterList = () => {
     }
   };
 
-  const countPerPage = 8;
+  const countPerPage = 10;
   const pageNums = Math.ceil(productData.length / countPerPage); // 5
   const pageNumsArr = Array(pageNums).fill(null); // [null,null,null,null,null]
 
-  const FirstPageData = productData.slice(0, 8);
+  const FirstPageData = productData.slice(0, countPerPage);
 
   const [clickedData, setClickedData] = useState(FirstPageData);
 
   useEffect(() => {
-    const pageDataArr = productData.slice(nowPage * 8, nowPage * 8 + 8);
+    const pageDataArr = productData.slice(
+      nowPage * countPerPage,
+      nowPage * countPerPage + countPerPage
+    );
     setClickedData(pageDataArr);
   }, [productData, nowPage]);
 
+  // 필터 관련
+  const [filterValue, setFilterValue] = useState({ product: '', status: '', show: '' });
+
   return (
     <Container>
-      <table style={{ border: '0.8px solid black', borderSpacing: 0 }}>
+      <FilterBox>
+        <label htmlFor="productSearch">
+          상품명
+          <input type="text" id="productSearch" placeholder="상품명 검색" />
+        </label>
+
+        <label htmlFor="status">상태</label>
+        <select type="select" id="status">
+          <option>할인</option>
+          <option>MD추천</option>
+          <option>Best</option>
+          <option>준비중</option>
+        </select>
+
+        <label htmlFor="show">상품 노출</label>
+        <select type="select" id="show">
+          <option>on</option>
+          <option>off</option>
+        </select>
+
+        <button type="button">검색</button>
+      </FilterBox>
+
+      <table>
         <tbody>
           <tr>
             {TITLES.map((data, idx) => (
@@ -97,9 +125,9 @@ const RegisterList = () => {
                   <TdEL rowSpan={rowLength}>
                     <DeleteBtn onClick={() => onClickDelBtn(data.id)}>
                       <HiOutlineTrash />
-                      <p>{data.id}</p>
                     </DeleteBtn>
                   </TdEL>
+                  <TdEL rowSpan={rowLength}>{data.id}</TdEL>
                   <TdEL rowSpan={rowLength}>
                     <TableImg src={data.img[0]} alt={data.title} />
                   </TdEL>
@@ -130,17 +158,13 @@ const RegisterList = () => {
       </table>
       <PageButtonWrapper>
         <PageButtons>
-          <PageButton onClick={() => onClickArrow('left')}>
-            <MdArrowBackIosNew />
-          </PageButton>
+          <PageButton onClick={() => onClickArrow('left')}>이전</PageButton>
           {pageNumsArr.map((_, idx) => (
             <PageButton key={idx} onClick={() => pageBtnClicked(idx)}>
               {idx + 1}
             </PageButton>
           ))}
-          <PageButton onClick={() => onClickArrow('right')}>
-            <MdArrowForwardIos />
-          </PageButton>
+          <PageButton onClick={() => onClickArrow('right')}>다음</PageButton>
         </PageButtons>
       </PageButtonWrapper>
     </Container>
@@ -149,6 +173,7 @@ const RegisterList = () => {
 
 const TITLES = [
   { title: '삭제', width: 45 },
+  { title: '품번', width: 50 },
   { title: '이미지', width: 200 },
   { title: '상품명', width: 300 },
   { title: '상품 옵션', width: 250 },
@@ -165,6 +190,21 @@ const Container = styled.div`
   margin: 2rem;
   background-color: aliceblue;
 `;
+
+const FilterBox = styled.div`
+  border: 1px solid black;
+  width: 95%;
+  height: 100px;
+  margin-bottom: 50px;
+`;
+
+const Label = styled.label`
+  //
+`;
+
+// const input = styled.input`
+//   //
+// `;
 
 const TableTitle = styled.td`
   border: 0.7px solid black;
