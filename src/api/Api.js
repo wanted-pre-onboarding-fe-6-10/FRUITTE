@@ -39,8 +39,8 @@ export const updateData = async (id, data) => {
 // pagenation - currentPage는 1~4값 중 하나
 export const pagenation = async currentPage => {
   const res = await axios.get('/products/isShow');
-  const totalPage = Math.ceil(res.length / 10);
+  const totalPage = Math.ceil(res.data.length / 10);
   const index = (currentPage - 1) * 10;
-  const productsList = res.slice(index, 10);
+  const productsList = res.data.slice(index, 10);
   return { productsList, totalPage }; // return {product[], number}
 };
