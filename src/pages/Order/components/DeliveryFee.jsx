@@ -1,13 +1,7 @@
 import styled from 'styled-components';
 
 const DeliveryFee = props => {
-  var fee = 0;
-  if (props.productList) {
-    props.productList.forEach(ele => {
-      fee += ele.delivery_fee;
-    });
-  }
-  return <Text>배송비 : {fee}</Text>;
+  return <Text>배송비 : {props.deliveryFee !== 0 ? props.deliveryFee : '무료'}</Text>;
 };
 
 // styled-components 위치

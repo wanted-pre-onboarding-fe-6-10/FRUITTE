@@ -71,6 +71,7 @@ const OrderDummy = [
         isShow: true,
       },
     ],
+    deliveryFee: 3000,
   },
   {
     company: 'A사',
@@ -136,6 +137,7 @@ const OrderDummy = [
         isShow: true,
       },
     ],
+    deliveryFee: 0,
   },
 ];
 

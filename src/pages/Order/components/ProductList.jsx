@@ -5,10 +5,10 @@ const OrderList = props => {
   return (
     <>
       <OrderWrapper>
-        {props.productList.map((ele, i) => (
+        {props.order.productList.map((ele, i) => (
           <Product key={'Product' + i} product={ele} />
         ))}
-        <DeliveryFee productList={props.productList} />
+        <DeliveryFee deliveryFee={props.order.deliveryFee} />
       </OrderWrapper>
     </>
   );
