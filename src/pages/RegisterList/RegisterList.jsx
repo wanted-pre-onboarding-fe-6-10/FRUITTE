@@ -82,29 +82,53 @@ const RegisterList = () => {
   // 필터 관련
   const [filterValue, setFilterValue] = useState({ product: '', status: '', show: '' });
 
+  const onChange = e => {
+    const { name, value } = e.target;
+    setFilterValue(prev => ({ ...prev, [name]: value }));
+  };
+
+  console.log(filterValue);
+
   return (
     <Container>
       <FilterBox>
         <label htmlFor="productSearch">
           상품명
-          <input type="text" id="productSearch" placeholder="상품명 검색" />
+          <input
+            type="text"
+            id="productSearch"
+            name="product"
+            placeholder="상품명 검색"
+            onChange={e => onChange(e)}
+          />
         </label>
 
-        <label htmlFor="status">상태</label>
-        <select type="select" id="status">
-          <option>할인</option>
-          <option>MD추천</option>
-          <option>Best</option>
-          <option>준비중</option>
-        </select>
+        <label htmlFor="status">
+          상태
+          <select id="status" name="status" onChange={e => onChange(e)}>
+            <option value="all">전체</option>
+            <option value="할인">할인</option>
+            <option value="MD추천">MD추천</option>
+            <option value="Best">Best</option>
+            <option value="준비중">준비중</option>
+          </select>
+        </label>
 
-        <label htmlFor="show">상품 노출</label>
-        <select type="select" id="show">
-          <option>on</option>
-          <option>off</option>
-        </select>
+        <label htmlFor="show">
+          상품 노출
+          <select id="show" name="show" onChange={e => onChange(e)}>
+            <option value="all">전체</option>
+            <option value="on">on</option>
+            <option value="off">off</option>
+          </select>
+        </label>
 
-        <button type="button">검색</button>
+        <button
+          type="button"
+          onClick={e => console.log('누르면 필터된 내용으로 다시 get요청하게끔')}
+        >
+          검색
+        </button>
       </FilterBox>
 
       <table>
