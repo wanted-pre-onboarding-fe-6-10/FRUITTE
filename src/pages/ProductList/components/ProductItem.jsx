@@ -1,13 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Status from '../../../components/Status';
 import { lightTheme } from '../../../styles/theme';
 import addComma from '../../../utils/addComma';
 
 const ProductItem = ({ product }) => {
+  const navigate = useNavigate();
+
+  const toDetailProduct = idx => {
+    navigate(`/fruitstore/${idx}`);
+  };
   return (
     product.isShow && (
-      <ProductItemBlock>
+      <ProductItemBlock onClick={() => toDetailProduct(product.id)}>
         <Image src={product.img[0]} alt="productImg" />
         <Title>{product.title}</Title>
         <Price>
