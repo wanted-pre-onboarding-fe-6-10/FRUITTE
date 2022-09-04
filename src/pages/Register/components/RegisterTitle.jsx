@@ -16,9 +16,4 @@ const RegisterTitle = ({ data, setData }) => {
   );
 };
 
-const Line = styled.hr`
-  border: 0.5px solid;
-  color: ${props => props.theme.subBgColor};
-`;
-
 export default RegisterTitle;
