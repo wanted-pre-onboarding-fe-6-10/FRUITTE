@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { HiOutlineTrash } from 'react-icons/hi';
 import styled from 'styled-components';
+import OptionTr from './components/OptionTr';
+import TdEL from './components/TdStyle';
 
 const RegisterList = () => {
   const [productData, setProductData] = useState([]);
 
-  // 가공데이터 만들기
   let manufacturedData = [];
 
   productData.forEach(obj => {
@@ -25,36 +26,37 @@ const RegisterList = () => {
 
   // get요청
   const getRequest = async () => {
-    const response = await axios('/data.json');
-    setProductData(response.data.products_list);
+    const response = await axios('/products');
+    setProductData(response.data);
   };
 
+  // get요청
   useEffect(() => {
     getRequest();
   }, []);
 
   // 삭제
-  const onClickDelBtn = clickedId => {
+  const onClickDelBtn = async clickedId => {
     const isDelete = window.confirm('상품을 삭제하시겠습니까?');
+
     if (isDelete) {
-      setProductData(prev => {
-        return prev.filter(data => data.id !== clickedId);
-      });
+      const response = await axios.post(`/products/del/${clickedId}`);
+
+      if (response.status === 200) {
+        getRequest();
+      }
     }
   };
 
-  // show수정
-  const onClickShowBtn = clickedId => {
+  // isShow 수정
+  const onClickShowBtn = async clickedId => {
     const isShowCheck = window.confirm('상품을 노출상태를 변경하시겠습니까?');
+
     if (isShowCheck) {
-      setProductData(prev =>
-        prev.map(data => {
-          if (data.id === clickedId) {
-            return { ...data, isShow: !data.isShow };
-          }
-          return data;
-        })
-      );
+      const fildObj = productData.find(obj => obj.id === clickedId);
+      const updateData = { isShow: !fildObj.isShow };
+      const { data } = await axios.post(`/products/update/${clickedId}`, updateData);
+      setProductData(prev => prev.map(obj => (obj.id === clickedId ? data : obj)));
     }
   };
 
@@ -81,7 +83,7 @@ const RegisterList = () => {
 
   const countPerPage = 10;
   const pageNums = Math.ceil(productData.length / countPerPage); // 5
-  const pageNumsArr = Array(pageNums).fill(null); // [null,null,null,null,null]
+  const pageNumsArr = Array(pageNums).fill(null);
 
   const FirstPageData = productData.slice(0, countPerPage);
 
@@ -96,21 +98,18 @@ const RegisterList = () => {
   }, [productData, nowPage]);
 
   // 필터 관련
-  // const [filterValue, setFilterValue] = useState({ product: '', show: '' });
+  const [filterValue, setFilterValue] = useState({ product: '', status: '', show: '' });
 
-  // const onChange = e => {
-  //   const { name, value } = e.target;
-  //   setFilterValue(prev => ({ ...prev, [name]: value }));
-  // };
+  const onChange = e => {
+    const { name, value } = e.target;
+    setFilterValue(prev => ({ ...prev, [name]: value }));
+  };
 
-  // const onClickSearch = () => {
-  //   const filterData = productData.filter(data => `${data.isShow}` === filterValue.show);
-  //   setProductData(filterData);
-  // };
+  // console.log(filterValue);
 
   return (
     <Container>
-      {/* <FilterBox>
+      <FilterBox>
         <label htmlFor="productSearch">
           상품명
           <input
@@ -122,31 +121,33 @@ const RegisterList = () => {
           />
         </label>
 
-        <label htmlFor="statusFilter">
+        <label htmlFor="status">
           상태
-          <select id="statusFilter" name="statusFilter" onChange={e => onChange(e)}>
-            <option value="">전체</option>
-            <option value="isSoldout">품절</option>
-            <option value="isDiscount">할인</option>
-            <option value="isRecommend">MD추천</option>
-            <option value="isBest">Best</option>
-            <option value="isPending">준비중</option>
+          <select id="status" name="status" onChange={e => onChange(e)}>
+            <option value="all">전체</option>
+            <option value="할인">할인</option>
+            <option value="MD추천">MD추천</option>
+            <option value="Best">Best</option>
+            <option value="준비중">준비중</option>
           </select>
         </label>
 
         <label htmlFor="show">
           상품 노출
           <select id="show" name="show" onChange={e => onChange(e)}>
-            <option value="">전체</option>
-            <option value="true">on</option>
-            <option value="false">off</option>
+            <option value="all">전체</option>
+            <option value="on">on</option>
+            <option value="off">off</option>
           </select>
         </label>
 
-        <button type="button" onClick={onClickSearch}>
+        <button
+          type="button"
+          onClick={e => console.log('누르면 필터된 내용으로 다시 get요청하게끔')}
+        >
           검색
         </button>
-      </FilterBox> */}
+      </FilterBox>
 
       <table>
         <tbody>
@@ -160,6 +161,7 @@ const RegisterList = () => {
           {manufacturedData.map((data, idx) => {
             if (data.type === 'product') {
               const rowLength = data.options.length ? data.options.length : 1;
+              console.log(data.id);
               return (
                 <tr key={data.id}>
                   <TdEL rowSpan={rowLength}>
@@ -181,12 +183,7 @@ const RegisterList = () => {
                   <TdEL>{data.options.length > 0 ? data.options[0].quantity : 70}</TdEL>
                   <TdEL rowSpan={rowLength}>{data.delivery_method}</TdEL>
                   <TdEL rowSpan={rowLength}>{data.delivery_fee}</TdEL>
-                  <TdEL rowSpan={rowLength}>
-                    {data.status.isSoldout && <Status>품절</Status>}
-                    {data.status.isDiscount && <Status>할인</Status>}
-                    {data.status.isBest && <Status>Best</Status>}
-                    {data.status.isPending && <Status>준비중</Status>}
-                  </TdEL>
+                  <TdEL rowSpan={rowLength}>할인 | MD추천 | Best | 준비중</TdEL>
                   <TdEL rowSpan={rowLength}>2022.09.01</TdEL>
                   <TdEL rowSpan={rowLength}>
                     <ShowBtn onClick={() => onClickShowBtn(data.id)} isShow={data.isShow}>
@@ -204,7 +201,54 @@ const RegisterList = () => {
                 </tr>
               );
             }
+
+            // if (data.type === 'option') {
+            //   return (
+            //     <tr key={Date.now() + Math.random()} style={{ width: '100px' }}>
+            //       <TdEL align="left">{data.productName}</TdEL>
+            //       <TdEL>{data.price}</TdEL>
+            //       <TdEL>{data.quantity}</TdEL>
+            //     </tr>
+            //   );
+            // }
           })}
+          {/* {clickedData.map(data => {
+            const rowLength = data.options.length ? data.options.length : 1;
+
+            return (
+              <>
+                <tr key={data.id}>
+                  <TdEL rowSpan={rowLength}>
+                    <DeleteBtn onClick={() => onClickDelBtn(data.id)}>
+                      <HiOutlineTrash />
+                    </DeleteBtn>
+                  </TdEL>
+                  <TdEL rowSpan={rowLength}>{data.id}</TdEL>
+                  <TdEL rowSpan={rowLength}>
+                    <TableImg src={data.img[0]} alt={data.title} />
+                  </TdEL>
+                  <TdEL rowSpan={rowLength} align="left">
+                    {data.title}
+                  </TdEL>
+                  <TdEL align="left">
+                    {data.options.length > 0 ? data.options[0].productName : ''}
+                  </TdEL>
+                  <TdEL>{data.options.length > 0 ? data.options[0].price : data.discount}</TdEL>
+                  <TdEL>{data.options.length > 0 ? data.options[0].quantity : 70}</TdEL>
+                  <TdEL rowSpan={rowLength}>{data.delivery_method}</TdEL>
+                  <TdEL rowSpan={rowLength}>{data.delivery_fee}</TdEL>
+                  <TdEL rowSpan={rowLength}>할인 | MD추천 | Best | 준비중</TdEL>
+                  <TdEL rowSpan={rowLength}>2022.09.01</TdEL>
+                  <TdEL rowSpan={rowLength}>
+                    <ShowBtn onClick={() => onClickShowBtn(data.id)} isShow={data.isShow}>
+                      {data.isShow ? 'on' : 'off'}
+                    </ShowBtn>
+                  </TdEL>
+                </tr>
+                {data.options.length > 0 ? <OptionTr options={data.options} /> : ''}
+              </>
+            );
+          })} */}
         </tbody>
       </table>
       <PageButtonWrapper>
@@ -271,14 +315,6 @@ const TableImg = styled.img`
   height: 160px;
 `;
 
-const TdEL = styled.td`
-  border: 0.7px solid black;
-  height: 50px;
-  padding: 0 5px;
-  vertical-align: middle;
-  text-align: ${prop => (prop.align ? prop.align : 'center')};
-`;
-
 const DeleteBtn = styled.button.attrs({ type: 'button' })`
   color: #d40303;
   background-color: inherit;
@@ -312,14 +348,6 @@ const PageButton = styled.button`
   padding: 10px;
   margin: 0 5px;
   cursor: pointer;
-`;
-
-const Status = styled.span`
-  /* display: inline-block; */
-  padding: 5px;
-  border: 0.8px solid green;
-  border-radius: 30%;
-  margin-right: 5px;
 `;
 
 export default RegisterList;
