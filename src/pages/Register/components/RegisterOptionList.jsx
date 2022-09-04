@@ -27,8 +27,8 @@ const RegisterOptionList = ({ options }) => {
 
 const OptionListBox = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: 4px 96px;
+  justify-content: space-evenly;
+  margin-top: 16px;
 `;
 const OptionListItem = styled.div`
   display: flex;
