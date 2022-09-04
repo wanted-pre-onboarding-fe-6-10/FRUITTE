@@ -33,12 +33,15 @@ export default class ProductService {
     return this.products_list;
   }
   update(id, data) {
+    if (typeof data !== 'object') {
+      throw new Error({ massage: 'data값이 객체가 아닙니다. 확인해주세요.' });
+    }
     const product = this.products_list.find(res => res.id === id); // 못찾을 시 undefind
     if (!product) {
       return false;
     }
     const index = this.products_list.findIndex(res => res.id === id);
-    const updatedProduct = Object.assign(product, JSON.stringify(data));
+    const updatedProduct = Object.assign(product, data);
     this.products_list.splice(index, 1, updatedProduct);
     return updatedProduct;
   }
