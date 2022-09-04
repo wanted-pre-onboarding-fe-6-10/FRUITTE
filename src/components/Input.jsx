@@ -175,7 +175,7 @@ export const ImgInput = forwardRef((props, ref) => {
             padding: '7px 12px',
           }}
           disabled
-          value={Img ? Img.split('blob:http://localhost:3000/')[1] : props.placeholder}
+          // value={Img ? Img.split('Url')[1] : props.placeholder}
         />
         <ImgBnt htmlFor="imgUpload">올리기</ImgBnt>
       </Widthflex>
