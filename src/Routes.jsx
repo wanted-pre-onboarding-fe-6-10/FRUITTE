@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Order from './pages/Order/Order';
 import Register from './pages/Register/Register';
+import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Order />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/fruitstore/:idx" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
