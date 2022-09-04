@@ -19,7 +19,6 @@ const Box = styled.div`
 `;
 
 const HomeLink = styled.a`
-  /* color: ${props => props.theme.lightTextColor}; */
   margin-right: 10px;
 `;
 

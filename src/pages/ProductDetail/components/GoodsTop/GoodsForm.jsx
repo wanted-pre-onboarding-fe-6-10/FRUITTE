@@ -1,10 +1,23 @@
 import { Button, InputLabel, MenuItem, Select } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Status from '../../../../components/Status';
+import addComma from '../../../../utils/addComma';
 
 const GoodsForm = ({ data }) => {
   const [option, setOption] = useState('');
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState(
+    data.options.length === 1
+      ? [
+          {
+            opIdx: 0,
+            option: data.productName,
+            quantity: 1,
+            priceSum: data.price,
+          },
+        ]
+      : []
+  );
 
   const handleSelect = event => {
     setOption(event.target.value);
@@ -15,6 +28,7 @@ const GoodsForm = ({ data }) => {
       }
     }
     const newSelectedItem = {
+      opIdx: event.target.value.opIdx,
       option: event.target.value.productName,
       quantity: 1,
       priceSum: event.target.value.price,
@@ -31,64 +45,94 @@ const GoodsForm = ({ data }) => {
     setSelectedItems([...renewList]);
   };
 
+  const handlePurchaseButtonClick = () => {
+    sessionStorage.setItem(`PROD_SELECTED_OPTION_${data.id}`, {
+      prodIdx: data.id,
+      options: selectedItems,
+      delivery_fee: 0,
+    });
+  };
+
+  // useEffect(() => {}, []);
+
   return (
     <Wrapper>
-      <GoodsName>{data.title}</GoodsName>
-      <BadgeWrapper>
-        {data.status.isDiscount ? <SaleBadge>SALE</SaleBadge> : null}
-        {data.status.isBest ? <BestBadge>BEST</BestBadge> : null}
-        {data.status.isPending ? <PendingBadge>판매대기</PendingBadge> : null}
-        {data.status.isRecommend ? <RecommendBadge>MD</RecommendBadge> : null}
-        {data.status.isSoldout ? <SoldoutBadge>SOLDOUT</SoldoutBadge> : null}
-        {/* <Badge>{data.status.map((item, idx) => {})}</Badge> */}
-      </BadgeWrapper>
       <Row>
-        <DiscountPrice>{data.discount}원</DiscountPrice>
-        <Price>{data.price}원</Price>
+        <GoodsName>{data.title}</GoodsName>
+        <BadgeWrapper>
+          {/* {data.status.isDiscount && <Status discount>SALE</Status>}
+          {data.status.isBest && <Status best>BEST</Status>}
+          {data.status.isPending && <Status commonStatus>MD</Status>}
+          {data.status.isRecommend && <Status commonStatus>판매대기</Status>}
+          {data.status.isSoldout && <Status sold>SOLDOUT</Status>} */}
+          {data.status.isDiscount ? <SaleBadge>SALE</SaleBadge> : null}
+          {data.status.isBest ? <BestBadge>BEST</BestBadge> : null}
+          {data.status.isPending ? <PendingBadge>판매대기</PendingBadge> : null}
+          {data.status.isRecommend ? <RecommendBadge>MD</RecommendBadge> : null}
+          {data.status.isSoldout ? <SoldoutBadge>SOLDOUT</SoldoutBadge> : null}
+          {/* <Badge>{data.status.map((item, idx) => {})}</Badge> */}
+        </BadgeWrapper>
+      </Row>
+      <Row>
+        <DiscountPrice>{addComma(data.discount)}원</DiscountPrice>
+        <Price>{addComma(data.price)}원</Price>
       </Row>
       <Divider />
       <Summary>
-        {data.description.map(item => (
-          <>
+        {data.description.map((item, idx) => (
+          <p key={idx}>
             {item}
             <br />
-          </>
+          </p>
         ))}
       </Summary>
       <Info>
-        <b>원산지:</b> {data.origin}
+        <InfoLabel>원산지</InfoLabel>
+        {data.origin}
       </Info>
       <Info>
-        <b>배송 방법:</b> {data.delivery_method}
+        <InfoLabel>배송 방법</InfoLabel>
+        {data.delivery_method}
       </Info>
-      <Info>{data.delivery_fee > 0 ? `배송비: ${data.delivery_fee}` : null}</Info>
       <Info>
-        <b>배송 안내:</b> {data.delivery_announcement}
+        {data.delivery_fee > 0 ? (
+          <>
+            <InfoLabel>배송비</InfoLabel>
+            {data.delivery_fee}원
+          </>
+        ) : null}
+      </Info>
+      <Info>
+        <InfoLabel>배송 안내</InfoLabel>
+        {data.delivery_announcement}
       </Info>
       {/* 왜 이부분이 상품마다 label이 다른지 분석 필요. 상품 등록 페이지에도 반영 필요 */}
-      <InputLabel id="select-purchase-option">필수선택 *</InputLabel>
-      <Select
-        labelId="select-purchase-option"
-        id="select-purchase-selector"
-        value={option}
-        // label={`${data.title}(필수)`}
-        onChange={e => handleSelect(e)}
-        style={{ width: '80%' }}
-      >
-        {data.options.map((item, idx) => (
-          <MenuItem key={idx} value={item}>
-            {item.productName}
-            <br />
-            {`${item.price}원`}
-          </MenuItem>
-        ))}
-      </Select>
 
-      {selectedItems.length > 0 ? (
+      {data.options.length > 1 ? (
         <>
+          <InputLabel id="select-purchase-option">필수선택 *</InputLabel>
+          <Select
+            labelId="select-purchase-option"
+            id="select-purchase-selector"
+            value={option}
+            // label={`${data.title}(필수)`}
+            onChange={e => handleSelect(e)}
+            style={{ width: '80%' }}
+          >
+            {data.options.map((item, idx) => {
+              item.opIdx = idx;
+              return (
+                <MenuItem key={idx} value={item}>
+                  {item.productName}
+                  <br />
+                  {`${item.price}원`}
+                </MenuItem>
+              );
+            })}
+          </Select>
           {selectedItems.map((item, idx) => (
             <SelectedItem key={idx}>
-              <SelectionWrapperRow>
+              <SelectedItemRow>
                 <SelectedItemOption>{item.option}</SelectedItemOption>
                 <SelectedItemResetButton
                   onClick={() => {
@@ -100,28 +144,59 @@ const GoodsForm = ({ data }) => {
                 >
                   <path d="M10.185,1.417c-4.741,0-8.583,3.842-8.583,8.583c0,4.74,3.842,8.582,8.583,8.582S18.768,14.74,18.768,10C18.768,5.259,14.926,1.417,10.185,1.417 M10.185,17.68c-4.235,0-7.679-3.445-7.679-7.68c0-4.235,3.444-7.679,7.679-7.679S17.864,5.765,17.864,10C17.864,14.234,14.42,17.68,10.185,17.68 M10.824,10l2.842-2.844c0.178-0.176,0.178-0.46,0-0.637c-0.177-0.178-0.461-0.178-0.637,0l-2.844,2.841L7.341,6.52c-0.176-0.178-0.46-0.178-0.637,0c-0.178,0.176-0.178,0.461,0,0.637L9.546,10l-2.841,2.844c-0.178,0.176-0.178,0.461,0,0.637c0.178,0.178,0.459,0.178,0.637,0l2.844-2.841l2.844,2.841c0.178,0.178,0.459,0.178,0.637,0c0.178-0.176,0.178-0.461,0-0.637L10.824,10z"></path>{' '}
                 </SelectedItemResetButton>
-              </SelectionWrapperRow>
+              </SelectedItemRow>
               <DottedDivider />
-              <SelectionWrapperRow>
+              <SelectedItemRow>
                 <SelectedItemQuantitySelector />
-                <SelectedItemPrice>{item.priceSum}원</SelectedItemPrice>
-              </SelectionWrapperRow>
+                <SelectedItemPrice>{addComma(item.priceSum)}원</SelectedItemPrice>
+              </SelectedItemRow>
             </SelectedItem>
           ))}
-          <SelectionWrapperRow>
+          <TotalPriceRow>
             <div>총 상품금액({selectedItems.reduce((sum, curr) => sum + curr.quantity, 0)}개)</div>
-            <TotalPrice>{selectedItems.reduce((sum, curr) => sum + curr.priceSum, 0)}원</TotalPrice>
-          </SelectionWrapperRow>
+            <TotalPrice>
+              {addComma(selectedItems.reduce((sum, curr) => sum + curr.priceSum, 0))}원
+            </TotalPrice>
+          </TotalPriceRow>
         </>
-      ) : null}
+      ) : (
+        <>
+          <SelectedItem>
+            <SelectedItemOption>수량</SelectedItemOption>
+            <DottedDivider />
+            <SelectedItemRow>
+              <SelectedItemQuantitySelector />
+              <SelectedItemPrice>{addComma(selectedItems[0].priceSum)}원</SelectedItemPrice>
+            </SelectedItemRow>
+          </SelectedItem>
+          <TotalPriceRow>
+            <div>총 상품금액({selectedItems.reduce((sum, curr) => sum + curr.quantity, 0)}개)</div>
+            <TotalPrice>
+              {addComma(selectedItems.reduce((sum, curr) => sum + curr.priceSum, 0))}원
+            </TotalPrice>
+          </TotalPriceRow>
+        </>
+      )}
 
+      {/* TODO 판매대기일 경우 처리 */}
       <ButtonWrapper>
-        <Button>구매하기</Button>
-        <Button>장바구니</Button>
-        <Button>하트아이콘(개수){}</Button>
+        <Button style={{ flexGrow: 1 }} onClick={handlePurchaseButtonClick}>
+          구매하기
+        </Button>
+        <Button style={{ flexGrow: 1 }}>장바구니</Button>
+        <Button style={{ flexGrow: 1 }}>
+          <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20">
+            <path d="M9.719,17.073l-6.562-6.51c-0.27-0.268-0.504-0.567-0.696-0.888C1.385,7.89,1.67,5.613,3.155,4.14c0.864-0.856,2.012-1.329,3.233-1.329c1.924,0,3.115,1.12,3.612,1.752c0.499-0.634,1.689-1.752,3.612-1.752c1.221,0,2.369,0.472,3.233,1.329c1.484,1.473,1.771,3.75,0.693,5.537c-0.19,0.32-0.425,0.618-0.695,0.887l-6.562,6.51C10.125,17.229,9.875,17.229,9.719,17.073 M6.388,3.61C5.379,3.61,4.431,4,3.717,4.707C2.495,5.92,2.259,7.794,3.145,9.265c0.158,0.265,0.351,0.51,0.574,0.731L10,16.228l6.281-6.232c0.224-0.221,0.416-0.466,0.573-0.729c0.887-1.472,0.651-3.346-0.571-4.56C15.57,4,14.621,3.61,13.612,3.61c-1.43,0-2.639,0.786-3.268,1.863c-0.154,0.264-0.536,0.264-0.69,0C9.029,4.397,7.82,3.61,6.388,3.61"></path>
+          </svg>
+          {' 0'}
+        </Button>
       </ButtonWrapper>
 
-      <NaverPayModule />
+      {data.status.isPending ? (
+        <PendingMessage>이 상품은 현재 판매기간이 아닙니다.</PendingMessage>
+      ) : (
+        <NaverPayModule />
+      )}
     </Wrapper>
   );
 };
@@ -135,25 +210,36 @@ const Row = styled.div`
   flex-direction: row;
   width: 100%;
   align-items: center;
+  margin-bottom: 0.5rem;
 `;
 
-const Divider = styled.hr``;
+const Divider = styled.div`
+  height: 1px;
+  background-color: ${props => props.theme.subBgColor};
+  margin: 1rem 0;
+`;
 
-const GoodsName = styled.h3``;
-
-const BadgeWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+const GoodsName = styled.h2`
+  font-size: larger;
 `;
 
 /* Badges */
+const BadgeWrapper = styled.span`
+  display: flex;
+  flex-direction: row;
+  margin-left: 8px;
+  /* width: 100%; */
+`;
+
 const Badge = styled.div`
-  padding: 5px;
-  font-size: small;
+  padding: 4px 8px;
+  font-size: x-small;
   text-transform: capitalize;
   word-break: keep-all;
   align-self: center;
+  & + & {
+    margin-left: 0.2rem;
+  }
 `;
 
 const SaleBadge = styled(Badge)`
@@ -181,7 +267,7 @@ const SoldoutBadge = styled(Badge)`
 
 const DiscountPrice = styled.div`
   color: ${props => props.theme.ownColor};
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: large;
 `;
 
@@ -189,24 +275,41 @@ const Price = styled.div`
   color: ${props => props.theme.lightTextColor};
   font-size: small;
   text-decoration: line-through;
-  padding-left: 4px;
+  padding-left: 8px;
 `;
 
 const Summary = styled.summary`
+  width: 90%;
   color: ${props => props.theme.subTextColor};
   font-size: medium;
+  font-weight: 100;
+  padding: 10px 0px;
+  line-height: normal;
 `;
 
 const Info = styled.div`
   color: ${props => props.theme.textColor};
   font-size: small;
+  margin-top: 4px;
 `;
 
-const ButtonWrapper = styled.div``;
+const InfoLabel = styled.span`
+  color: ${props => props.theme.textColor};
+  font-weight: 600;
+  margin-right: 0.5rem;
+`;
 
-const NaverPayModule = styled.div``;
+const SelectedItem = styled.div`
+  background-color: ${props => props.theme.lightBgColor};
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 8px;
+`;
 
-const SelectionWrapperRow = styled.div`
+const SelectedItemRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -216,13 +319,11 @@ const SelectionWrapperRow = styled.div`
   font-size: small;
 `;
 
-const SelectedItem = styled.div`
-  background-color: ${props => props.theme.subBgColor};
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  justify-content: space-between;
-  align-items: stretch;
+const DottedDivider = styled.hr`
+  width: 100%;
+  border: 0;
+  border-bottom: 1px dashed #e0e0e0;
+  margin: 10px 0px;
 `;
 
 const SelectedItemOption = styled.div`
@@ -230,23 +331,51 @@ const SelectedItemOption = styled.div`
 `;
 
 const SelectedItemResetButton = styled.svg`
+  fill: ${props => props.theme.lightTextColor};
   &:hover {
-    fill: red;
+    fill: ${props => props.theme.ownColor};
   }
-`;
-
-const DottedDivider = styled.hr`
-  border: 0;
-  border-bottom: 1px dashed #ccc;
-  background: #999;
 `;
 
 const SelectedItemPrice = styled.div``;
 
 const SelectedItemQuantitySelector = styled.div``;
 
-const TotalPrice = styled.div`
+const TotalPriceRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: ${props => props.theme.subTextColor};
   font-size: medium;
+  font-weight: 300;
+  margin: 2rem 0;
+  padding: 0 0.5rem;
 `;
+
+const TotalPrice = styled.div`
+  color: ${props => props.theme.textColor};
+  font-size: large;
+  font-weight: 500;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+`;
+
+const PendingMessage = styled.div`
+  background-color: ${props => props.theme.lightBgColor};
+  color: ${props => props.theme.subTextColor};
+  font-size: small;
+  font-weight: 300;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+`;
+
+const NaverPayModule = styled.div``;
 
 export default GoodsForm;

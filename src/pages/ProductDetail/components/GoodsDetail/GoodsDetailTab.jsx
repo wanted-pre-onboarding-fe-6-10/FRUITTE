@@ -50,7 +50,7 @@ const Tab = styled.a`
   font-weight: 300;
   width: 100%;
   text-align: center;
-  padding: 8px 0;
+  padding: 10px 0;
 
   &:hover {
     background-color: ${props => props.theme.subBgColor};
