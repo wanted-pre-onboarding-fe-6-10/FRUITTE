@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useEffect, useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 export const TextInput = forwardRef((props, ref) => {
   return (
@@ -53,118 +53,7 @@ export const ArrInput = forwardRef((props, ref) => {
   );
 });
 
-export const ImgInput = forwardRef((props, ref) => {
-  const [Img, setImg] = useState(null);
-  const onImgChange = (event, imgHandler) => {
-    setImg(URL.createObjectURL(event.target.files[0]));
-    imgHandler(event.target.files[0]);
-  };
-
-  return (
-    <Width100>
-      {props.title ? (
-        <Label required={props.required}>
-          {props.title}
-          <Required>*</Required>
-        </Label>
-      ) : (
-        <DisplayNone />
-      )}
-      <Widthflex>
-        <Input
-          style={{
-            width: '100%',
-            backgroundColor: 'white',
-            padding: '7px 12px',
-          }}
-          disabled
-          value={Img ? Img.split('blob:http://localhost:3000/')[1] : props.placeholder}
-        />
-        <ImgBnt htmlFor="imgUpload">올리기</ImgBnt>
-      </Widthflex>
-
-      <InputImg
-        style={{ display: 'none' }}
-        key={props.key}
-        id="imgUpload"
-        ref={ref}
-        type="file"
-        className="imgInput"
-        accept="image/*"
-        name="file"
-        onChange={e => {
-          onImgChange(e, props.onChange);
-        }}
-      />
-      {props.guideline ? <Guideline>{props.guideline}</Guideline> : <DisplayNone />}
-      {Img !== null ? <PreviewImg src={Img} /> : <DisplayNone />}
-    </Width100>
-  );
-});
-export const MultiImgInput =
-  forwardRef >
-  ((props, ref) => {
-    const [images, setImages] = useState([]);
-    const [imageURLS, setImageURLs] = useState([]);
-
-    useEffect(() => {
-      if (images.length < 1) return;
-      const newImageUrls = [];
-      images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
-      setImageURLs(newImageUrls);
-    }, [images]);
-
-    function onImageChange(e, imgHandler) {
-      setImages([...e.target.files]);
-      imgHandler(e.target.files);
-    }
-
-    return (
-      <Width100>
-        {props.title ? (
-          <Label required={props.required}>
-            {props.title}
-            <Required>*</Required>
-          </Label>
-        ) : (
-          <DisplayNone />
-        )}
-        <Widthflex>
-          <Input
-            style={{
-              width: '100%',
-              backgroundColor: 'white',
-              padding: '7px 12px',
-            }}
-            disabled
-            value={imageURLS.map(url => url)}
-          />
-          <ImgBnt htmlFor="imgUpload">올리기</ImgBnt>
-        </Widthflex>
-
-        <InputImg
-          style={{ display: 'none' }}
-          key={props.key}
-          id="imgUpload"
-          ref={ref}
-          type="file"
-          className="imgInput"
-          accept="image/*"
-          name="file"
-          multiple
-          onChange={e => {
-            onImageChange(e, props.onChange);
-          }}
-        />
-        {props.guideline ? <Guideline>{props.guideline}</Guideline> : <DisplayNone />}
-        {imageURLS.map(imageURL =>
-          imageURL !== null ? <PreviewImg key={imageURL} src={imageURL} /> : <DisplayNone />
-        )}
-      </Width100>
-    );
-  });
-
-export const Width100 = styled.div`
+const Width100 = styled.div`
   width: 100%;
   margin-top: 28px;
 `;
@@ -179,7 +68,7 @@ const DisplayNone = styled.div`
   display: none;
 `;
 
-export const Label = styled.div`
+const Label = styled.div`
   font-weight: 600;
   font-size: 16px;
   line-height: 16px;
@@ -188,25 +77,9 @@ export const Label = styled.div`
     display: ${props => (props.required === true ? 'static' : 'none')};
   }
 `;
-export const Required = styled.span`
+const Required = styled.span`
   color: red;
   margin-left: 2px;
-`;
-
-const InputImg = styled.input`
-  font-size: 16px;
-  line-height: 19px;
-  width: 100%;
-  height: 30px;
-  border: 1px solid #ececec;
-  box-sizing: border-box;
-  padding: 12px 19px;
-  border-radius: 5px;
-`;
-
-const PreviewImg = styled.img`
-  width: 100px;
-  padding: 15px 120px;
 `;
 
 const ArrButton = styled.button`
@@ -246,17 +119,4 @@ export const Guideline = styled.div`
   line-height: 16px;
   margin-top: 16px;
   margin-left: 1px;
-`;
-
-const ImgBnt = styled.label`
-  font-size: 16px;
-  width: 6.5rem;
-  height: 30px;
-  margin-left: 5px;
-  line-height: 16px;
-  text-align: center;
-  border: 1px solid black;
-  box-sizing: border-box;
-  padding: 12px 19px;
-  border-radius: 30px;
 `;
