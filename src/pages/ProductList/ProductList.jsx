@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { lightTheme } from '../../styles/theme';
 import Pagination from '../../components/Pagination';
 import ProductItem from './components/ProductItem';
 import { chunk } from '../../utils/sliceArr';
-import products from '../../api/data.json';
+// import products from '../../api/data.json';
 
-const pageSliceArr = chunk(products.products_list, 10);
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
   const [pageNum, setPageNum] = useState(0);
 
   // useEffect(() => {
@@ -16,20 +16,30 @@ const ProductList = () => {
   //   };
   //   getAllProducts();
   // }, []);
+  useEffect(() => {
+    const getData = async () => {
+      const { products_list } = await fetch('/data.json').then(res => res.json());
+      setProducts(products_list);
+    };
+    getData();
+  }, []);
+
+  const pageSliceArr = chunk(products, 10);
 
   return (
     <Container>
       <HeaderTextBox>
-        FRUITTE STORE <span>{products.products_list.length}</span>
+        FRUITTE STORE <span>{products.length}</span>
       </HeaderTextBox>
       <ContainerGridBox>
-        {pageSliceArr[pageNum].map(product => (
+        {pageSliceArr[pageNum]?.map(product => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ContainerGridBox>
       <PaginationBox>
         <Pagination pageSliceArr={pageSliceArr} pageNum={pageNum} setPageNum={setPageNum} />
       </PaginationBox>
+      11
     </Container>
   );
 };
