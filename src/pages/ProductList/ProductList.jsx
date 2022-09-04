@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import products from '../../api/data.json';
 import { lightTheme } from '../../styles/theme';
-import Pagination from './components/Pagination';
+import Pagination from '../../components/Pagination';
 import ProductItem from './components/ProductItem';
 import { chunk } from '../../utils/sliceArr';
 
@@ -10,40 +10,19 @@ const pageSliceArr = chunk(products.products_list, 10);
 const ProductList = () => {
   const [pageNum, setPageNum] = useState(0);
 
-  const onIncreasePage = () => {
-    if (pageNum === pageSliceArr.length - 1) {
-      alert('마지막 페이지 입니다');
-    } else {
-      setPageNum(pageNum + 1);
-    }
-  };
-
-  const onDecreasePage = () => {
-    if (pageNum === 0) {
-      alert('마지막 페이지 입니다.');
-    } else {
-      setPageNum(pageNum - 1);
-    }
-  };
-
   return (
     <Container>
-      <HeaderBox>
-        <HeaderTextBox>
-          FRUITTE STORE <span>{products.products_list.length}</span>
-        </HeaderTextBox>
-        <Pagination
-          pageSliceLength={pageSliceArr.length}
-          pageNum={pageNum}
-          onIncreasePage={onIncreasePage}
-          onDecreasePage={onDecreasePage}
-        />
-      </HeaderBox>
+      <HeaderTextBox>
+        FRUITTE STORE <span>{products.products_list.length}</span>
+      </HeaderTextBox>
       <ContainerGridBox>
         {pageSliceArr[pageNum].map(product => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ContainerGridBox>
+      <PaginationBox>
+        <Pagination pageSliceArr={pageSliceArr} pageNum={pageNum} setPageNum={setPageNum} />
+      </PaginationBox>
     </Container>
   );
 };
@@ -64,15 +43,6 @@ const Container = styled.div`
   }
 `;
 
-const HeaderBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5rem;
-  margin-bottom: 1rem;
-`;
-
 const HeaderTextBox = styled.p`
   font-size: 16px;
   font-weight: 500;
@@ -80,6 +50,13 @@ const HeaderTextBox = styled.p`
   span {
     color: ${lightTheme.ownColor};
   }
+`;
+
+const PaginationBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 `;
 
 const ContainerGridBox = styled.div`
