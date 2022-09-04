@@ -13,8 +13,6 @@ const RegisterList = () => {
     setProductData(response.data.products_list);
   };
 
-  // console.log(productData);  // [질문]왜 4번이나 찍히는지?
-
   useEffect(() => {
     getRequest();
   }, []);

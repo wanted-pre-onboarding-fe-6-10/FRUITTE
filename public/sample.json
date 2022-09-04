@@ -15,11 +15,7 @@
       "delivery_method": "택배",
       "delivery_announcement": "50000원 이상 구매시 무료배송",
       "delivery_fee": 3500,
-      "options": [
-        { "productName": "유자청 480g 2병(960g)", "price": 15200, "quantity": 30 },
-        { "productName": "유자청 1kg 1병", "price": 13300, "quantity": 20 },
-        { "productName": "착즙유자 500ml", "price": 18800, "quantity": 99 }
-      ],
+      "options": [],
       "status": {
         "isSoldout": false,
         "isDiscount": true,
@@ -29,6 +25,9 @@
       },
       "isShow": true
     },
+    { "productName": "유자청 480g 2병(960g)", "price": 15200, "quantity": 30 },
+    { "productName": "유자청 1kg 1병", "price": 13300, "quantity": 20 },
+    { "productName": "착즙유자 500ml", "price": 18800, "quantity": 99 },
     {
       "id": "2",
       "img": [
