@@ -6,8 +6,7 @@ const OptionTr = ({ options }) => {
     <>
       {options.map((el, idx) => {
         if (idx === 0) {
-          // eslint-disable-next-line array-callback-return
-          return;
+          return null;
         }
         return (
           <tr key={idx} style={{ width: '100px' }}>

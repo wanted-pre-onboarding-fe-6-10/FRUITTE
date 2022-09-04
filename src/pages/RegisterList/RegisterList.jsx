@@ -87,7 +87,7 @@ const RegisterList = () => {
     setFilterValue(prev => ({ ...prev, [name]: value }));
   };
 
-  console.log(filterValue);
+  // console.log(filterValue);
 
   return (
     <Container>
