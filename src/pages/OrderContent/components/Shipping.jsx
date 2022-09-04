@@ -25,6 +25,10 @@ const ShippingBox = styled.div`
   display: flex;
   flex-direction: column;
   border: ${props => `1px solid ${props.theme.borderColor}`};
+  background-color: ${props => props.theme.bgColor};
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 
 export default Shipping;

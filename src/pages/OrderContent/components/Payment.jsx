@@ -18,8 +18,8 @@ const Payment = ({ orderInfo }) => {
     <PaymentBox>
       <BoxTitle title="결제정보" />
       <InfoMenu title="주문번호" text={orderNumber} />
-      <PaymentDetail payment={orderInfo.payment_info} due={due} />
       {!isRegistered && <Text>{nonMemberMessage}</Text>}
+      <PaymentDetail payment={orderInfo.payment_info} due={due} />
     </PaymentBox>
   );
 };
@@ -27,14 +27,20 @@ const Payment = ({ orderInfo }) => {
 const PaymentBox = styled.div`
   width: 40%;
   height: 100%;
+  margin: 1em 0;
   display: flex;
   flex-direction: column;
   border: ${props => `1px solid ${props.theme.borderColor}`};
+  background-color: ${props => props.theme.bgColor};
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 
 const Text = styled.h2`
   color: ${props => props.theme.highlightColor};
   font-size: 0.8em;
+  padding: 0.5em 2em;
 `;
 
 export default Payment;
