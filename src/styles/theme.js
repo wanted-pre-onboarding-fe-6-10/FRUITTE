@@ -21,7 +21,6 @@ export const lightTheme = {
   subBoxColor: '#eeeeee',
   // 일반 박스(best, md)
   borderColor: '#eeeeee',
-
   // 정보 텍스트 색상
   lightTextColor: '#B8B8B8',
 };
