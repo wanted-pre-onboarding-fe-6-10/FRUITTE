@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { HiOutlineTrash } from 'react-icons/hi';
+import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 import styled from 'styled-components';
 import OptionTr from './components/OptionTr';
 import TdEL from './components/TdStyle';
@@ -15,7 +16,6 @@ const RegisterList = () => {
 
   // console.log(productData);  // [질문]왜 4번이나 찍히는지?
 
-  // useEffect(getRequest, []); // [질문] 왜 이렇게 하면 안되는지?
   useEffect(() => {
     getRequest();
   }, []);
@@ -44,35 +44,51 @@ const RegisterList = () => {
   };
 
   // 페이지네이션 부분
-  // const [nowPage, setNowPage] = useState(1);
-  const countPerPage = 8;
-  const pageCount = Math.floor(productData.length / countPerPage);
-  const pageCountArr = Array(pageCount).fill(null);
-  // // let PageData = [];
+  let [nowPage, setNowPage] = useState(0);
 
-  // useEffect(() => {
-  //   const PageData = productData.splice(0, countPerPage);
-  //   console.log(PageData);
-  // }, []);
+  const pageBtnClicked = idx => {
+    setNowPage(idx);
+  };
+
+  const onClickArrow = type => {
+    if (type === 'left') {
+      setNowPage(prev => {
+        return prev - 1 >= 0 ? prev - 1 : 0;
+      });
+    }
+
+    if (type === 'right') {
+      setNowPage(prev => {
+        return prev + 1 <= 4 ? prev + 1 : 4;
+      });
+    }
+  };
+
+  const countPerPage = 8;
+  const pageNums = Math.ceil(productData.length / countPerPage); // 5
+  const pageNumsArr = Array(pageNums).fill(null); // [null,null,null,null,null]
+
+  const FirstPageData = productData.slice(0, 8);
+
+  const [clickedData, setClickedData] = useState(FirstPageData);
+
+  useEffect(() => {
+    const pageDataArr = productData.slice(nowPage * 8, nowPage * 8 + 8);
+    setClickedData(pageDataArr);
+  }, [productData, nowPage]);
 
   return (
     <Container>
       <table style={{ border: '0.8px solid black', borderSpacing: 0 }}>
         <tbody>
           <tr>
-            <TableTitle width="45">삭제</TableTitle>
-            <TableTitle width="200">이미지</TableTitle>
-            <TableTitle width="300">상품명</TableTitle>
-            <TableTitle width="250">상품 옵션</TableTitle>
-            <TableTitle width="120">가격(할인가)</TableTitle>
-            <TableTitle width="90">재고</TableTitle>
-            <TableTitle width="110">배송방법</TableTitle>
-            <TableTitle width="110">배송비</TableTitle>
-            <TableTitle width="230">상태</TableTitle>
-            <TableTitle width="120">마지막 수정일</TableTitle>
-            <TableTitle width="80">상품노출</TableTitle>
+            {TITLES.map((data, idx) => (
+              <TableTitle key={idx} width={data.width}>
+                {data.title}
+              </TableTitle>
+            ))}
           </tr>
-          {productData.map(data => {
+          {clickedData.map(data => {
             const rowLength = data.options.length ? data.options.length : 1;
 
             return (
@@ -81,6 +97,7 @@ const RegisterList = () => {
                   <TdEL rowSpan={rowLength}>
                     <DeleteBtn onClick={() => onClickDelBtn(data.id)}>
                       <HiOutlineTrash />
+                      <p>{data.id}</p>
                     </DeleteBtn>
                   </TdEL>
                   <TdEL rowSpan={rowLength}>
@@ -113,16 +130,36 @@ const RegisterList = () => {
       </table>
       <PageButtonWrapper>
         <PageButtons>
-          {pageCountArr.map((_, idx) => (
-            <PageButtn key={idx} value={idx + 1}>
+          <PageButton onClick={() => onClickArrow('left')}>
+            <MdArrowBackIosNew />
+          </PageButton>
+          {pageNumsArr.map((_, idx) => (
+            <PageButton key={idx} onClick={() => pageBtnClicked(idx)}>
               {idx + 1}
-            </PageButtn>
+            </PageButton>
           ))}
+          <PageButton onClick={() => onClickArrow('right')}>
+            <MdArrowForwardIos />
+          </PageButton>
         </PageButtons>
       </PageButtonWrapper>
     </Container>
   );
 };
+
+const TITLES = [
+  { title: '삭제', width: 45 },
+  { title: '이미지', width: 200 },
+  { title: '상품명', width: 300 },
+  { title: '상품 옵션', width: 250 },
+  { title: '가격(할인가)', width: 120 },
+  { title: '재고', width: 90 },
+  { title: '배송방법', width: 110 },
+  { title: '배송비', width: 110 },
+  { title: '상태', width: 230 },
+  { title: '마지막 수정일', width: 120 },
+  { title: '상품노출', width: 80 },
+];
 
 const Container = styled.div`
   margin: 2rem;
@@ -170,10 +207,11 @@ const PageButtons = styled.ul`
   display: flex;
 `;
 
-const PageButtn = styled.button`
+const PageButton = styled.button`
   background-color: inherit;
-  border: none;
-  margin: 0 10px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0 5px;
   cursor: pointer;
 `;
 
