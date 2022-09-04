@@ -11,7 +11,7 @@ const InfoMenu = ({ title, text }) => {
 
 const InfoWrapper = styled.div`
   width: 100%;
-  padding: 1em 2em;
+  padding: 1em 2em 1em 3em;
   border-top: ${props => `1px solid ${props.theme.borderColor}`};
   display: flex;
 `;

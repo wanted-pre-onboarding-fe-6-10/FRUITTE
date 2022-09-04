@@ -15,11 +15,10 @@ const ProductInfo = ({ orderInfo }) => {
       <ProductImage src={productImg} />
       <Wrapper>
         <Text>{productName}</Text>
-        <SubText>옵션: {productInfo.option}</SubText>
+        <SubText>{productInfo.option}</SubText>
         <Text bold="bold">총 주문금액 : {addComma(totalPrice)}</Text>
-        <SubText>
-          상품금액: {addComma(discount)} + 배송비: {addComma(deliveryFee)}
-        </SubText>
+        <SubText>상품금액: {addComma(discount)}</SubText>
+        <SubText>배송비: {addComma(deliveryFee)}</SubText>
       </Wrapper>
     </ProductBox>
   );
@@ -61,7 +60,6 @@ const ProductImage = styled.img.attrs(props => ({
 }))`
   width: 25%;
   padding: 10px;
-  border: ${props => `1px solid ${props.theme.borderColor}`};
 `;
 
 export default ProductInfo;
