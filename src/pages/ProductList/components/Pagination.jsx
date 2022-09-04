@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { lightTheme } from '../../../styles/theme';
 
-const Pagination = () => {
+const Pagination = ({ pageNum, onIncreasePage, onDecreasePage }) => {
   return (
     <PaginationBlock>
-      <button>이전</button>
-      <span>1</span>
-      <button>다음</button>
+      <button onClick={onDecreasePage}>이전</button>
+      <span>{pageNum + 1}</span>
+      <button onClick={onIncreasePage}>다음</button>
     </PaginationBlock>
   );
 };
@@ -23,7 +23,7 @@ const PaginationBlock = styled.div`
   margin-top: 8rem;
 
   @media (max-width: 425px) {
-    width: 100%;
+    width: 80%;
   }
 
   button {
