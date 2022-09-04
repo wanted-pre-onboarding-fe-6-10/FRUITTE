@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 import BoxTitle from './BoxTitle';
-const Payment = () => {
+const Payment = ({ getData }) => {
   return (
     <>
-      <BoxTitle title={'결제하기'} />
+      <BoxTitle title="결제하기" />
       <CheckBoxWrapper>
-        <CheckBox type="checkbox"></CheckBox>
-        <Label>주문자 정보와 동일</Label>
+        <CheckBox type="checkbox" />
+        <Label>전체동의</Label>
       </CheckBoxWrapper>
       <CheckBoxWrapper>
-        <CheckBox type="checkbox"></CheckBox>
+        <CheckBox type="checkbox" />
         <Label>개인정보 수집 및 이용 동의</Label>
         <Link href="#">약관보기</Link>
       </CheckBoxWrapper>
       <CheckBoxWrapper>
-        <CheckBox type="checkbox"></CheckBox>
+        <CheckBox type="checkbox" />
         <Label>구매조건 확인 및 결제진행에 동의</Label>
       </CheckBoxWrapper>
       <ButtonBox>
-        <Button>결제하기</Button>
+        <Button onClick={getData}>결제하기</Button>
       </ButtonBox>
     </>
   );

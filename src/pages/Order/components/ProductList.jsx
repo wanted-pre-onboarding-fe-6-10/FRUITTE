@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 import Product from './Product';
 import DeliveryFee from './DeliveryFee';
-const OrderList = props => {
+const OrderList = ({ productList, deliveryFee }) => {
   return (
-    <>
-      <OrderWrapper>
-        {props.order.productList.map((ele, i) => (
-          <Product key={'Product' + i} product={ele} />
-        ))}
-        <DeliveryFee deliveryFee={props.order.deliveryFee} />
-      </OrderWrapper>
-    </>
+    <OrderWrapper>
+      {productList.map((ele, i) => (
+        <Product key={'Product' + i} product={ele} />
+      ))}
+      <DeliveryFee deliveryFee={deliveryFee} />
+    </OrderWrapper>
   );
 };
 

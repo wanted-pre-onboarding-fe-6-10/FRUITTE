@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import OrderOption from './OrderOption';
-const Product = props => {
+const Product = ({ product }) => {
   return (
     <ProductBox>
-      <ProductImage src={props.product.img[0]} />
+      <ProductImage src={product.img[0]} />
       <InfoWrapper>
-        <Text>{props.product.title}</Text>
-        <OrderOption optionList={props.product.options} option={props.product.option} />
-        <Text>{props.product.price}원</Text>
+        <Text>{product.title}</Text>
+        <OrderOption optionList={product.options} option={product.option} />
+        <Text>{product.price}원</Text>
       </InfoWrapper>
     </ProductBox>
   );

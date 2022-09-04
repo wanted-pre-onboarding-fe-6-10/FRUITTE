@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const DeliveryFee = props => {
-  return <Text>배송비 : {props.deliveryFee !== 0 ? props.deliveryFee : '무료'}</Text>;
+const DeliveryFee = ({ deliveryFee }) => {
+  return <Text>배송비 : {deliveryFee !== 0 ? deliveryFee : '무료'}</Text>;
 };
 
 // styled-components 위치

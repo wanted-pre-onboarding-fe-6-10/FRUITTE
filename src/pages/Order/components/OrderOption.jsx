@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const OrderOption = props => {
+const OrderOption = ({ option, optionList }) => {
   return (
     <OptionBox>
-      {props.option.map(ele => {
+      {option.map(ele => {
         return (
           <OptionWrapper key={ele.number}>
-            <Text>{props.optionList[ele.number].productName}</Text>
+            <Text>{optionList[ele.number].productName}</Text>
             <Text>{ele.quantity}개</Text>
           </OptionWrapper>
         );

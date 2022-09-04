@@ -1,3 +1,4 @@
+import * as React from 'react';
 import styled from 'styled-components';
 
 import OrderInfo from './components/OrderInfo';
@@ -146,6 +147,38 @@ const OrderDummy = [
 ];
 
 const Order = () => {
+  const [ordererName, setOpenPostcode] = React.useState('');
+  const [ordererContact, setOrdererContact] = React.useState('');
+  const [ordererEmail, setOrdererEmail] = React.useState('');
+  const [recipientName, setRecipientName] = React.useState('');
+  const [recipientContact, setRecipientContact] = React.useState('');
+  const [recipientPostCode, setRecipientPostCode] = React.useState('');
+  const [recipientAddress1, setRecipientAddress1] = React.useState('');
+  const [recipientAddress2, setRecipientAddress2] = React.useState('');
+  const [shippingMemo, setShippingMemo] = React.useState('');
+  const [paymentMethod, setPaymentMethod] = React.useState('');
+  const [formData, setformData] = React.useState({
+    ordererName: '',
+  });
+  const setData = (key, value) => {
+    let newData = {};
+  };
+
+  const getData = () => {
+    console.log({
+      ordererName,
+      ordererContact,
+      ordererEmail,
+      recipientName,
+      recipientContact,
+      recipientPostCode,
+      recipientAddress1,
+      recipientAddress2,
+      shippingMemo,
+      paymentMethod,
+    });
+  };
+
   return (
     <>
       <Title>결제하기</Title>
@@ -157,8 +190,8 @@ const Order = () => {
         </LeftWrapper>
         <RightWrapper>
           <OrderSummary orderInfo={OrderDummy} />
-          <PaymentMethod />
-          <Payment />
+          <PaymentMethod setPaymentMethod={setPaymentMethod} />
+          <Payment getData={getData} />
         </RightWrapper>
       </Box>
     </>

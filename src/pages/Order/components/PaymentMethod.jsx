@@ -3,7 +3,7 @@ import BoxTitle from './BoxTitle';
 const PaymentMethod = () => {
   return (
     <>
-      <BoxTitle title={'결제수단'} />
+      <BoxTitle title="결제수단" />
       <RadioBox>
         <RadioWrapper>
           <Radio type="radio" />

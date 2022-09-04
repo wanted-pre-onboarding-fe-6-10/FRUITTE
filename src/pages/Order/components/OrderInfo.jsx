@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import BoxTitle from './BoxTitle';
 import ProductList from './ProductList';
 
-const OrderInfo = props => {
+const OrderInfo = ({ orderInfo }) => {
   return (
     <>
-      <BoxTitle title={'주문 상품 정보'} />
+      <BoxTitle title="주문 상품 정보" />
       <OrderWrapper>
-        {props.orderInfo.map((ele, i) => (
-          <ProductList key={ele.company + ele.deliveryFee} order={ele} />
+        {orderInfo.map((ele, i) => (
+          <ProductList
+            key={ele.company + ele.deliveryFee}
+            productList={ele.productList}
+            deliveryFee={ele.deliveryFee}
+          />
         ))}
       </OrderWrapper>
     </>

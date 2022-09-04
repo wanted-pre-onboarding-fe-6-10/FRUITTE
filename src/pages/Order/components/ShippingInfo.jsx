@@ -7,7 +7,9 @@ const ShippingInfo = () => {
   const PostModalControl = () => {
     setOpenPostcode(current => !current);
   };
-  const selectAddress = () => {};
+  const selectAddress = e => {
+    console.log(e);
+  };
   return (
     <>
       <BoxTitle title="배송 정보" />
