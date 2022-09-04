@@ -3,7 +3,7 @@ import {
   RegisterContentWrapper,
   RegisterInputWrapper,
   RegisterTitleWrapper,
-} from './RegisterPrice';
+} from './common/RegisterContent';
 // textarea로 Description 부분을 입력하는 컴포넌트 구성
 const RegisterDescription = ({ data, setData }) => {
   return (

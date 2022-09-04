@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
 import RegisterModal from './RegisterModal';
@@ -6,9 +6,9 @@ import {
   RegisterContentWrapper,
   RegisterInputWrapper,
   RegisterTitleWrapper,
-} from './RegisterPrice';
+} from './common/RegisterContent';
 // 이미지 등록하고 미리보기 볼 수 있는 컴포넌트
-const RegisterImage = () => {
+const RegisterImage = ({ data, setData }) => {
   const [imgUrls, setImgUrls] = useState([]);
   const [imgId, setImgId] = useState();
   const [open, setOpen] = useState(false);
@@ -58,6 +58,9 @@ const RegisterImage = () => {
       handleDeleteImage(id);
     }
   };
+  useEffect(() => {
+    setData({ ...data, img: imgUrls });
+  }, [imgUrls]);
 
   return (
     <RegisterBox title={'상품이미지'}>

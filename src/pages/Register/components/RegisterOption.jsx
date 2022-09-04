@@ -8,10 +8,17 @@ import {
   RegisterContentWrapper,
   RegisterInputWrapper,
   RegisterTitleWrapper,
-} from './RegisterPrice';
+} from './common/RegisterContent';
+import { RegisterInput } from './RegisterTitle';
+import Button from '../../../components/Button';
 
 const RegisterOption = ({ data, setData }) => {
   const [option, setOption] = useState({ productName: '', price: 0, quantity: 0 });
+  const columnData = [
+    { accessor: 'productName', Header: '옵션명' },
+    { accessor: 'price', Header: '옵션가격' },
+    { accessor: 'quantity', Header: '옵션수량' },
+  ];
   const onSubmit = e => {
     e.preventDefault();
     const ops = [...data.options, option];
@@ -23,37 +30,84 @@ const RegisterOption = ({ data, setData }) => {
         <RegisterContentWrapper>
           <RegisterTitleWrapper>옵션명</RegisterTitleWrapper>
           <RegisterInputWrapper>
-            <input
+            <RegisterInput
               type="text"
+              placeholder="옵션명을 입력해주세요."
               onChange={e => setOption({ ...option, productName: e.target.value })}
             />
           </RegisterInputWrapper>
         </RegisterContentWrapper>
         <RegisterContentWrapper>
-          <RegisterTitleWrapper>가격</RegisterTitleWrapper>
+          <RegisterTitleWrapper>옵션가격</RegisterTitleWrapper>
           <RegisterInputWrapper>
-            <input
+            <RegisterInput
               type="text"
+              placeholder="옵션가격을 입력해주세요."
               onChange={e => setOption({ ...option, price: parseInt(e.target.value) })}
             />
           </RegisterInputWrapper>
         </RegisterContentWrapper>
         <RegisterContentWrapper>
-          <RegisterTitleWrapper>수량</RegisterTitleWrapper>
+          <RegisterTitleWrapper>옵션수량</RegisterTitleWrapper>
           <RegisterInputWrapper>
-            <input
+            <RegisterInput
               type="text"
+              placeholder="옵션수량을 입력해주세요."
               onChange={e => setOption({ ...option, quantity: parseInt(e.target.value) })}
             />
           </RegisterInputWrapper>
         </RegisterContentWrapper>
-        <button style={{ width: '100%' }}>추가하기</button>
+        <RegisterContentWrapper>
+          <RegisterTitleWrapper></RegisterTitleWrapper>
+          <RegisterButton>
+            옵션으로 적용
+            <Span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </Span>
+          </RegisterButton>
+        </RegisterContentWrapper>
       </OptionForm>
-
-      <RegisterOptionList options={data.options} />
+      <RegisterOptionList columnData={columnData} options={data.options} />
     </RegisterBox>
   );
 };
 const OptionForm = styled.form``;
+
+const RegisterButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 40px;
+  margin: 16px 0px;
+  border: none;
+  font-size: 16px;
+  fontweight: bold;
+  color: ${props => props.theme.bgColor};
+  background-color: ${props => props.theme.ownColor};
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.theme.ownColorHover};
+  }
+`;
+const Span = styled.svg`
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+`;
 
 export default RegisterOption;

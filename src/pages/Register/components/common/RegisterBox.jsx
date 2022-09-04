@@ -23,6 +23,7 @@ export const Box = styled.div`
   flex-direction: column;
   padding: 16px;
   background-color: ${props => props.theme.bgColor};
+  /* border-radius: 8px; */
   margin-bottom: 16px;
   gap: 8px;
 `;

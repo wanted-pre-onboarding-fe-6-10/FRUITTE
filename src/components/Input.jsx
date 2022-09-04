@@ -116,15 +116,15 @@ export const Input = styled.input`
   line-height: 19px;
   width: 100%;
   height: 30px;
-  border: 1px solid #ececec;
+  border: 1px solid ${props => props.theme.subBgColor};
   box-sizing: border-box;
-  padding: 15px 19px;
+  padding: 8px 16px;
   border-radius: 5px;
   @media screen and (max-width: 499px) {
     font-size: 12px;
   }
   &::placeholder {
-    color: #c8c8c8;
+    color: ${props => props.theme.subBgColor};
   }
 `;
 

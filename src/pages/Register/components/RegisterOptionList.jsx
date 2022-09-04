@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { useTable } from 'react-table';
 
-const RegisterOptionList = ({ options }) => {
+const RegisterOptionList = ({ columnData, options }) => {
+  // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
+  //   columnData,
+  //   options,
+  // });
   return (
     <OptionListBox>
       <OptionListItem>
