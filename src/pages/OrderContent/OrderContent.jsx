@@ -3,7 +3,7 @@ import OrderTitle from './components/OrderTitle';
 import Payment from './components/Payment';
 import ProductInfo from './components/Product';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // order-content dummy data
 const OrderContentDummy = {
