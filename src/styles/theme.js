@@ -20,5 +20,5 @@ export const lightTheme = {
   // footer
   subBoxColor: '#eeeeee',
   // 일반 박스(best, md)
-  borderColor: '#eeeeee',
+  borderColor: '#ccc',
 };
