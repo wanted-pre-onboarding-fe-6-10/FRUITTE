@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Info = ({ title, text }) => {
+const InfoMenu = ({ title, text }) => {
   return (
     <InfoWrapper>
       <InfoTitle>{title}</InfoTitle>
@@ -12,20 +12,17 @@ const Info = ({ title, text }) => {
 const InfoWrapper = styled.div`
   width: 100%;
   display: flex;
-  padding: 15px;
 `;
 
 const InfoTitle = styled.h1`
-  width: 25%;
-  line-height: 1.5em;
+  width: 30%;
   color: ${props => props.theme.subTextColor};
 `;
 
 const InfoText = styled.h1`
-  width: 75%;
-  line-height: 1.5em;
-  padding-left: 20px;
+  width: 70%;
   color: ${props => props.theme.textColor};
+  white-space: pre-wrap;
 `;
 
-export default Info;
+export default InfoMenu;
