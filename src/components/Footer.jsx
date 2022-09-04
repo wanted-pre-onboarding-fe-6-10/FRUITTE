@@ -1,13 +1,5 @@
-import StoreInfo from './Footer/StoreInfo';
-import CompanyInfo from './Footer/CompanyInfo';
-
 const Footer = () => {
-  return (
-    <>
-      <StoreInfo />
-      <CompanyInfo />
-    </>
-  );
+  return <>Footer</>;
 };
 
 export default Footer;
