@@ -7,6 +7,8 @@ export const lightTheme = {
   bgColor: '#ffffff',
   // 주문하기 배경색상
   subBgColor: '#eeeeee',
+  // 옵션 아이템 배경색상
+  lightBgColor: '#F9F9F9',
   // 일반 글씨
   textColor: '#333333',
   // 가격할인이나 기타 회색으로 처리해야되는 부분

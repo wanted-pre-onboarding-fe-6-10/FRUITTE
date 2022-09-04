@@ -12,10 +12,14 @@ const GoodsTop = ({ data }) => {
 };
 
 const Box = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
-  justify-content: space-between;
+  grid-column-gap: 50px;
+
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default GoodsTop;

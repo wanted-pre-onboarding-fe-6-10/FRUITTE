@@ -21,21 +21,42 @@ const Pagination = ({ pageSliceArr, pageNum, setPageNum }) => {
       setPageNum(pageNum - 1);
     }
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <PaginationBox>
-      <button onClick={onDecreasePage}>
+      <button
+        onClick={() => {
+          onDecreasePage();
+          scrollToTop();
+        }}
+      >
         <IoIosArrowBack />
       </button>
       {pageNums.map((_, idx) => (
         <span
           key={idx}
-          onClick={() => setPageNum(idx)}
+          onClick={() => {
+            setPageNum(idx);
+            scrollToTop();
+          }}
           aria-current={pageNum === idx ? 'page' : null}
         >
           {idx + 1}
         </span>
       ))}
-      <button style={{ marginLeft: '1rem' }} onClick={onIncreasePage}>
+      <button
+        style={{ marginLeft: '1rem' }}
+        onClick={() => {
+          onIncreasePage();
+          scrollToTop();
+        }}
+      >
         <IoIosArrowForward />
       </button>
     </PaginationBox>
@@ -48,6 +69,7 @@ const PaginationBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1rem;
 
   button {
     outline: none;
