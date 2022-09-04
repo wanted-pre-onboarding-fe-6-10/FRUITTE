@@ -150,55 +150,6 @@ const ImgBnt = styled.label`
   border-radius: 30px;
 `;
 
-export const ImgInput = forwardRef((props, ref) => {
-  const [Img, setImg] = useState(null);
-  const onImgChange = (event, imgHandler) => {
-    setImg(URL.createObjectURL(event.target.files[0]));
-    imgHandler(event.target.files[0]);
-  };
-
-  return (
-    <Width100>
-      {props.title ? (
-        <Label required={props.required}>
-          {props.title}
-          <Required>*</Required>
-        </Label>
-      ) : (
-        <DisplayNone />
-      )}
-      <Widthflex>
-        <Input
-          style={{
-            width: '100%',
-            backgroundColor: 'white',
-            padding: '7px 12px',
-          }}
-          disabled
-          // value={Img ? Img.split('Url')[1] : props.placeholder}
-        />
-        <ImgBnt htmlFor="imgUpload">올리기</ImgBnt>
-      </Widthflex>
-
-      <InputImg
-        style={{ display: 'none' }}
-        key={props.key}
-        id="imgUpload"
-        ref={ref}
-        type="file"
-        className="imgInput"
-        accept="image/*"
-        name="file"
-        onChange={e => {
-          onImgChange(e, props.onChange);
-        }}
-      />
-      {props.guideline ? <Guideline>{props.guideline}</Guideline> : <DisplayNone />}
-      {Img !== null ? <PreviewImg src={Img} /> : <DisplayNone />}
-    </Width100>
-  );
-});
-
 export const MultiImgInput = forwardRef((props, ref) => {
   const [images, setImages] = useState([]);
   const [imageURLS, setImageURLs] = useState([]);
