@@ -1,34 +1,38 @@
 import styled from 'styled-components';
+import ResposiveNav from './ResposiveNav';
 
 const Nav = () => {
   return (
-    <Container>
-      <NavBox>
-        <LogoBox>
-          <LogoWrapper href="/">
-            <LogoImg src="https://cdn.imweb.me/thumbnail/20210215/9c484dd3f6e7f.jpg" />
-          </LogoWrapper>
-        </LogoBox>
-        <NavTagBox>
-          <NavTagWrapper>
-            <NavTagLink href="/fruitstore">
-              <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
-            </NavTagLink>
-          </NavTagWrapper>
-          <NavTagWrapper>
-            <NavTagLink href="/register">
-              <NavTagTitle checkPathname={checkPathname('/register')}>ADMIN</NavTagTitle>
-            </NavTagLink>
-          </NavTagWrapper>
-        </NavTagBox>
-        <AuthBox>
-          <AuthWrapper>
-            <Auth>login</Auth>
-            <Auth>join</Auth>
-          </AuthWrapper>
-        </AuthBox>
-      </NavBox>
-    </Container>
+    <>
+      <Container>
+        <NavBox>
+          <LogoBox>
+            <LogoWrapper href="/">
+              <LogoImg src="https://cdn.imweb.me/thumbnail/20210215/9c484dd3f6e7f.jpg" />
+            </LogoWrapper>
+          </LogoBox>
+          <NavTagBox>
+            <NavTagWrapper>
+              <NavTagLink href="/fruitstore">
+                <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
+              </NavTagLink>
+            </NavTagWrapper>
+            <NavTagWrapper>
+              <NavTagLink href="/register">
+                <NavTagTitle checkPathname={checkPathname('/register')}>ADMIN</NavTagTitle>
+              </NavTagLink>
+            </NavTagWrapper>
+          </NavTagBox>
+          <AuthBox>
+            <AuthWrapper>
+              <Auth>login</Auth>
+              <Auth>join</Auth>
+            </AuthWrapper>
+          </AuthBox>
+        </NavBox>
+      </Container>
+      <ResposiveNav />
+    </>
   );
 };
 
@@ -42,7 +46,7 @@ const Container = styled.div`
   z-index: 1000;
   background-color: ${props => props.theme.bgColor};
   border-bottom: 1px solid ${props => props.theme.subBgColor};
-  padding: 0;
+  padding: 0 3rem;
 `;
 
 const NavBox = styled.div`
@@ -59,9 +63,21 @@ const LogoWrapper = styled.a`
 `;
 const LogoImg = styled.img`
   width: 179px;
+
+  @media (max-width: 425px) {
+    width: 140px;
+  }
+
+  @media (max-width: 375px) {
+    width: 100px;
+  }
 `;
 const NavTagBox = styled.div`
   display: flex;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 const NavTagWrapper = styled.div`
   padding: 0px 20px;
@@ -88,8 +104,9 @@ const AuthWrapper = styled.div`
   justify-content: flex-end;
 `;
 const Auth = styled.div`
-  font-size: 12px;
+  font-size: 16px;
   padding: 4px;
+  cursor: pointer;
 `;
 
 export default Nav;
