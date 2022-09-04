@@ -92,7 +92,9 @@ const GoodsForm = ({ data }) => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const GoodsName = styled.div``;
 

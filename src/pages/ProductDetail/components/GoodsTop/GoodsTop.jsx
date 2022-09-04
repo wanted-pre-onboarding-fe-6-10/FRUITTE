@@ -5,7 +5,7 @@ import GoodsImages from './GoodsImages';
 const GoodsTop = ({ data }) => {
   return (
     <Box>
-      <GoodsImages />
+      <GoodsImages imageList={data.img} />
       <GoodsForm data={data} />
     </Box>
   );
@@ -14,8 +14,8 @@ const GoodsTop = ({ data }) => {
 const Box = styled.div`
   display: flex;
   flex-direction: row;
-  /* width: 100%; */
-  justify-content: space-around;
+  width: 100%;
+  /* justify-content: space-around; */
 `;
 
 export default GoodsTop;
