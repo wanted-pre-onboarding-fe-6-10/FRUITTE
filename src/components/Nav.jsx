@@ -11,8 +11,8 @@ const Nav = () => {
         </LogoBox>
         <NavTagBox>
           <NavTagWrapper>
-            <NavTagLink href="/productList">
-              <NavTagTitle checkPathname={checkPathname('/productList')}>FRUIT STORE</NavTagTitle>
+            <NavTagLink href="/fruitstore">
+              <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
             </NavTagLink>
           </NavTagWrapper>
           <NavTagWrapper>
