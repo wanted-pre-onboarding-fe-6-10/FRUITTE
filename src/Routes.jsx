@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Order from './pages/Order/Order';
+import OrderContent from './pages/OrderContent/OrderContent';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 
 const Router = () => {
@@ -10,6 +11,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Order />} />
+        <Route path="/ordercontent" element={<OrderContent />} />
         <Route path="/fruitstore/:idx" element={<ProductDetail />} />
       </Routes>
       <Footer />
