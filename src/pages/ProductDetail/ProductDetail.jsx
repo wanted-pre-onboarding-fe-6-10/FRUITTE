@@ -41,12 +41,13 @@ const ProductDetail = () => {
 const Container = styled.div`
   display: grid;
   height: 100%;
-  padding: 20px 50px;
+  margin: 0 auto;
+  padding: 20px 16px;
   grid-row-gap: 20px;
-  // FIXME global style로 대체
-  font-family: 'Roboto', sans-serif;
-  // TODO 삭제
-  background-color: ${props => props.theme.bgColor};
+  width: 100%;
+  max-width: 1000px;
+  justify-items: center;
+  justify-self: center;
 `;
 
 export default ProductDetail;

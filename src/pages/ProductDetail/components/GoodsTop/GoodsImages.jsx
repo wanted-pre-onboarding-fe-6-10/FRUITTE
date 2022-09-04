@@ -9,12 +9,22 @@ const GoodsImages = ({ imageList }) => {
       {imageList.length > 0 ? (
         <>
           <FocusImage>
-            <img src={imageList[focusImage]} alt="" style={{ width: '100%' }} />
+            <img
+              src={imageList[focusImage]}
+              alt={`이미지${focusImage}`}
+              title="상품이미지"
+              style={{ width: '100%' }}
+            />
           </FocusImage>
           <ImageThumbnails>
             {imageList.map((item, idx) => (
               <ThumbnailImage key={idx} onClick={() => setFocusImage(idx)}>
-                <img src={item} title={idx} style={{ width: '100%' }} />
+                <img
+                  src={item}
+                  alt={`이미지${focusImage}`}
+                  title="상품이미지"
+                  style={{ width: '100%' }}
+                />
               </ThumbnailImage>
             ))}
           </ImageThumbnails>
@@ -31,6 +41,8 @@ const Wrapper = styled.div`
 const ImageThumbnails = styled.div`
   display: flex;
   flex-direction: row;
+  overflow: auto;
+  white-space: nowrap;
 `;
 
 const FocusImage = styled.div`
@@ -38,7 +50,8 @@ const FocusImage = styled.div`
 `;
 
 const ThumbnailImage = styled.div`
-  width: 10%;
+  max-width: 15%;
+  min-width: 15%;
   margin: 1px;
 `;
 
