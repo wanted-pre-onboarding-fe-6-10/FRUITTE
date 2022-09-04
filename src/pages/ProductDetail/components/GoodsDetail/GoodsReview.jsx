@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const GoodsReview = () => {
   return (
-    <Wrapper>
+    <Wrapper id="prod_detail_review">
       <SubTitle>구매평({})</SubTitle>
       <HelperText></HelperText>
       <List></List>

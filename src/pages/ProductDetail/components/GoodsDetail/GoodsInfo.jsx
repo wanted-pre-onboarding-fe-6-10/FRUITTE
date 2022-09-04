@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const GoodsInfo = () => {
   return (
-    <Wrapper>
+    <Wrapper id="prod_detail_detail">
       <InfoImage></InfoImage>
       <Table></Table>
     </Wrapper>
@@ -11,7 +11,9 @@ const GoodsInfo = () => {
 
 const Wrapper = styled.div``;
 
-const InfoImage = styled.img``;
+const InfoImage = styled.div`
+  height: 2000px;
+`;
 
 const Table = styled.table``;
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const GoodsQna = () => {
   return (
-    <Wrapper>
+    <Wrapper id="prod_detail_qna">
       <SubTitle>Q&A({})</SubTitle>
       <HelperText></HelperText>
       <Button></Button>
