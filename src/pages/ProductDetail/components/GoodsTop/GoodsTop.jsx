@@ -15,7 +15,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  /* justify-content: space-around; */
+  justify-content: space-between;
 `;
 
 export default GoodsTop;
