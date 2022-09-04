@@ -1,29 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import { lightTheme } from '../../../styles/theme';
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-icons/bs';
 
-const Pagination = ({ pageNum, onIncreasePage, onDecreasePage }) => {
+const Pagination = ({ pageSliceLength, pageNum, onIncreasePage, onDecreasePage }) => {
   return (
-    <PaginationBlock>
-      <button onClick={onDecreasePage}>이전</button>
-      <span>{pageNum + 1}</span>
-      <button onClick={onIncreasePage}>다음</button>
-    </PaginationBlock>
+    <PaginationBox>
+      <span>
+        {pageNum + 1} / {pageSliceLength}
+      </span>
+      <BsFillArrowLeftCircleFill onClick={onDecreasePage} />
+      <BsFillArrowRightCircleFill onClick={onIncreasePage} />
+    </PaginationBox>
   );
 };
 
 export default Pagination;
 
-const PaginationBlock = styled.div`
-  width: 320px;
-  margin: 0 auto;
+const PaginationBox = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 8rem;
 
-  @media (max-width: 425px) {
-    width: 80%;
+  svg {
+    color: ${lightTheme.ownColor};
+    width: 25px;
+    height: 25px;
+    margin-left: 0.5rem;
+    cursor: pointer;
   }
 
   button {
@@ -35,5 +38,6 @@ const PaginationBlock = styled.div`
     padding: 0.5rem;
     cursor: pointer;
     font-weight: 500;
+    margin-left: 1rem;
   }
 `;

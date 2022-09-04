@@ -28,19 +28,22 @@ const ProductList = () => {
 
   return (
     <Container>
-      <HeaderTextBox>
-        FRUITTE STORE <span>{products.products_list.length}</span>
-      </HeaderTextBox>
+      <HeaderBox>
+        <HeaderTextBox>
+          FRUITTE STORE <span>{products.products_list.length}</span>
+        </HeaderTextBox>
+        <Pagination
+          pageSliceLength={pageSliceArr.length}
+          pageNum={pageNum}
+          onIncreasePage={onIncreasePage}
+          onDecreasePage={onDecreasePage}
+        />
+      </HeaderBox>
       <ContainerGridBox>
         {pageSliceArr[pageNum].map(product => (
           <ProductItem key={product.id} product={product} />
         ))}
       </ContainerGridBox>
-      <Pagination
-        pageNum={pageNum}
-        onIncreasePage={onIncreasePage}
-        onDecreasePage={onDecreasePage}
-      />
     </Container>
   );
 };
@@ -61,8 +64,16 @@ const Container = styled.div`
   }
 `;
 
+const HeaderBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+`;
+
 const HeaderTextBox = styled.p`
-  margin: 1rem 0;
   font-size: 16px;
   font-weight: 500;
 
