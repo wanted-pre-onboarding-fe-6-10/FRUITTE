@@ -16,9 +16,9 @@ const ProductInfo = ({ orderInfo }) => {
       <Wrapper>
         <Text>{productName}</Text>
         <SubText>{productInfo.option}</SubText>
-        <Text bold="bold">총 주문금액 : {addComma(totalPrice)}</Text>
-        <SubText>상품금액: {addComma(discount)}</SubText>
-        <SubText>배송비: {addComma(deliveryFee)}</SubText>
+        <Text bold="bold">총 주문금액 : {addComma(totalPrice) + '원'}</Text>
+        <SubText>상품금액: {addComma(discount) + '원'}</SubText>
+        <SubText>배송비: {addComma(deliveryFee) + '원'}</SubText>
       </Wrapper>
     </ProductBox>
   );
@@ -33,6 +33,12 @@ const ProductBox = styled.div`
   background-color: ${props => props.theme.bgColor};
   @media (max-width: 650px) {
     width: 100%;
+  }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
   }
 `;
 

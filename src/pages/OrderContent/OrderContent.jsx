@@ -66,7 +66,8 @@ const RedirectButton = styled.button`
   width: 40%;
   height: 50px;
   background-color: ${props => props.theme.ownColor};
-  font-size: 1.2em;
+  font-size: 1em;
+  font-weight: bold;
   margin-bottom: 20px;
   border: none;
   color: ${props => props.theme.boxColor};
@@ -75,6 +76,12 @@ const RedirectButton = styled.button`
   }
   @media (max-width: 650px) {
     width: 100%;
+  }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
   }
 `;
 

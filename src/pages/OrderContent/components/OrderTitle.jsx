@@ -19,6 +19,12 @@ const Box = styled.div`
   @media (max-width: 650px) {
     width: 100%;
   }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
+  }
 `;
 
 const MainText = styled.h1`

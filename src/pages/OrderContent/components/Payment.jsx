@@ -35,12 +35,18 @@ const PaymentBox = styled.div`
   @media (max-width: 650px) {
     width: 100%;
   }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
+  }
 `;
 
 const Text = styled.h2`
   color: ${props => props.theme.highlightColor};
   font-size: 0.8em;
-  padding: 0.5em 2em;
+  padding: 0 2em 0.5em 4em;
 `;
 
 export default Payment;
