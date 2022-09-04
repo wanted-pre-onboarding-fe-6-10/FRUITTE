@@ -27,7 +27,9 @@ const ProductItem = ({ product }) => {
 
 export default ProductItem;
 
-const ProductItemBlock = styled.div``;
+const ProductItemBlock = styled.div`
+  cursor: pointer;
+`;
 
 const Title = styled.p`
   margin-bottom: 0.5rem;
@@ -44,6 +46,12 @@ const Price = styled.p`
 const Image = styled.img`
   width: 100%;
   height: auto;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 const StatusBlock = styled.div`
