@@ -47,7 +47,14 @@ const GoodsForm = ({ data }) => {
         <Price>{data.price}원</Price>
       </Row>
       <Divider />
-      <Summary>{data.description.join(`\n`)}</Summary>
+      <Summary>
+        {data.description.map(item => (
+          <>
+            {item}
+            <br />
+          </>
+        ))}
+      </Summary>
       <Info>
         <b>원산지:</b> {data.origin}
       </Info>
@@ -185,7 +192,7 @@ const Price = styled.div`
   padding-left: 4px;
 `;
 
-const Summary = styled.div`
+const Summary = styled.summary`
   color: ${props => props.theme.subTextColor};
   font-size: medium;
 `;

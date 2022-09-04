@@ -41,7 +41,8 @@ const ProductDetail = () => {
 const Container = styled.div`
   display: grid;
   height: 100%;
-  padding: 10px 100px;
+  padding: 20px 50px;
+  grid-row-gap: 20px;
   // FIXME global style로 대체
   font-family: 'Roboto', sans-serif;
   // TODO 삭제

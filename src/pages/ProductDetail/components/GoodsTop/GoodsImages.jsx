@@ -38,7 +38,8 @@ const FocusImage = styled.div`
 `;
 
 const ThumbnailImage = styled.div`
-  width: 20%;
+  width: 10%;
+  margin: 1px;
 `;
 
 export default GoodsImages;
