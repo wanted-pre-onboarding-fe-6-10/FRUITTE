@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const Info = ({ title }) => {
+const Info = ({ title, text }) => {
   return (
     <InfoWrapper>
       <InfoTitle>{title}</InfoTitle>
-      <InfoText>텍스트</InfoText>
+      <InfoText>{text}</InfoText>
     </InfoWrapper>
   );
 };
@@ -16,12 +16,15 @@ const InfoWrapper = styled.div`
 `;
 
 const InfoTitle = styled.h1`
-  width: 30%;
+  width: 25%;
+  line-height: 1.5em;
   color: ${props => props.theme.subTextColor};
 `;
 
 const InfoText = styled.h1`
-  width: 60%;
+  width: 75%;
+  line-height: 1.5em;
+  padding-left: 20px;
   color: ${props => props.theme.textColor};
 `;
 
