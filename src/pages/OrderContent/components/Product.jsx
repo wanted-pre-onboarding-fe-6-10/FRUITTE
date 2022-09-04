@@ -28,7 +28,6 @@ const ProductInfo = ({ orderInfo }) => {
 
 const ProductBox = styled.div`
   width: 40%;
-  padding: 20px;
   display: flex;
   justify-content: center;
   border: ${props => `1px solid ${props.theme.borderColor}`};

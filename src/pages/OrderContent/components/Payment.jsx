@@ -5,7 +5,7 @@ import BoxTitle from './BoxTitle';
 
 const Payment = ({ orderInfo }) => {
   const isRegistered = orderInfo.orderer.isRegistered;
-  const nonMemberMessage = '비회원 주문의 경우 주문번호와 연락처번호로 주문조회가 가능합니다.';
+  const nonMemberMessage = '* 비회원 주문의 경우 주문번호와 연락처번호로 주문조회가 가능합니다.';
   const date = new Date();
   const getYear = date.getFullYear();
   const getMonth = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
@@ -28,8 +28,6 @@ const PaymentBox = styled.div`
   width: 40%;
   height: 100%;
   display: flex;
-  margin-top: 10px;
-  padding: 10px 30px;
   flex-direction: column;
   border: ${props => `1px solid ${props.theme.borderColor}`};
 `;

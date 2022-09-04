@@ -24,8 +24,6 @@ const ShippingBox = styled.div`
   height: 70%;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  padding: 10px 30px;
   border: ${props => `1px solid ${props.theme.borderColor}`};
 `;
 

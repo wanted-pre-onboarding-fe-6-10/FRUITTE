@@ -16,9 +16,9 @@
       "delivery_announcement": "50000원 이상 구매시 무료배송",
       "delivery_fee": 3500,
       "options": [
-        { "productName": "유자청 480g 2병(960g)", "price": 15200 ,"quantity":30 },
-        { "productName": "유자청 1kg 1병", "price": 13300 , "quantity":20 },
-        { "productName": "착즙유자 500ml", "price": 18800, "quantity":99 }
+        { "productName": "유자청 480g 2병(960g)", "price": 15200, "quantity": 30 },
+        { "productName": "유자청 1kg 1병", "price": 13300, "quantity": 20 },
+        { "productName": "착즙유자 500ml", "price": 18800, "quantity": 99 }
       ],
       "status": {
         "isSoldout": false,
@@ -26,7 +26,8 @@
         "isRecommend": false,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "2",
@@ -47,8 +48,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "고추장 1kg", "price": 25000, "quantity":10 },
-        { "productName": "고추장 2kg", "price": 49000, "quantity":0 }
+        { "productName": "고추장 1kg", "price": 25000, "quantity": 10 },
+        { "productName": "고추장 2kg", "price": 49000, "quantity": 0 }
       ],
       "status": {
         "isSoldout": false,
@@ -56,7 +57,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "3",
@@ -77,7 +79,7 @@
       "delivery_announcement": "50,000원 이상 구매시 무료배송",
       "delivery_fee": 5000,
       "options": [
-        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50},
+        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50 },
         { "productName": "나주배선물세트 7kg 10-11과", "price": 39900, "quantity": 40 },
         { "productName": "나주배선물세트 8kg 14-15과", "price": 49900, "quantity": 3 }
       ],
@@ -87,7 +89,8 @@
         "isRecommend": true,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "4",
@@ -105,14 +108,17 @@
       "delivery_method": "택배",
       "delivery_announcement": "무료",
       "delivery_fee": 0,
-      "options": [{ "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }],
+      "options": [
+        { "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }
+      ],
       "status": {
         "isSoldout": false,
         "isDiscount": true,
         "isRecommend": true,
         "isBest": false,
         "isPending": true
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "5",
@@ -124,7 +130,7 @@
       "origin": "충청남도 청양군",
       "delivery_method": "택배",
       "delivery_announcement": "무료",
-      "delivery_fee":4000,
+      "delivery_fee": 4000,
       "options": [
         { "productName": "2kg", "price": 52000, "quantity": 10 },
         { "productName": "4kg", "price": 92000, "quantity": 15 },
@@ -136,7 +142,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : false
+      },
+      "isShow": false
     },
 
     {
@@ -157,11 +164,17 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "7",
-      "img": ["https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"],
+      "img": [
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"
+      ],
       "title": "반려동물과자 아기과자 동결건조 사과칩 50g (5봉지, 10봉지 묶음상품)",
       "price": 80000,
       "discount": 35000,
@@ -177,7 +190,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity" }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
@@ -185,7 +198,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "8",
@@ -202,8 +216,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "1kg", "price": 20000,"quantity":99 },
-        { "productName": "2kg", "price": 36000,"quantity":70 }
+        { "productName": "1kg", "price": 20000, "quantity": 99 },
+        { "productName": "2kg", "price": 36000, "quantity": 70 }
       ],
       "status": {
         "isSoldout": false,
@@ -211,7 +225,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "9",
@@ -241,31 +256,39 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "10",
       "img": [
-        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg" ],
-    "title": "청양 전통 수제 간장 500ml, 1L",
-    "price": 16000,
-    "discount": 12500,
-    "description": [
-      "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
-      "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
-    ],
-    "origin": "충청남도 청양군",
-    "delivery_method": "택배",
-    "delivery_announcement": "40000원 이상 구매시 무료배송",
-    "delivery_fee": 4000,
-    "options": [
-      { "productName": "간장 500ml", "price": 6500, "quantity": 72  },
-      { "productName": "간장 1L", "price": 12500, "quantity": 13 }
-    ],
-    "status": { "isSoldout": false, "isDiscount": true, "isRecommend": true, "isBest": false, "isPending":false
-      },"isShow" : true
+        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg"
+      ],
+      "title": "청양 전통 수제 간장 500ml, 1L",
+      "price": 16000,
+      "discount": 12500,
+      "description": [
+        "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
+        "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
+      ],
+      "origin": "충청남도 청양군",
+      "delivery_method": "택배",
+      "delivery_announcement": "40000원 이상 구매시 무료배송",
+      "delivery_fee": 4000,
+      "options": [
+        { "productName": "간장 500ml", "price": 6500, "quantity": 72 },
+        { "productName": "간장 1L", "price": 12500, "quantity": 13 }
+      ],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": true,
+        "isBest": false,
+        "isPending": false
+      },
+      "isShow": true
     },
     {
       "id": "11",
@@ -275,14 +298,21 @@
       "discount": 22500,
       "description": [
         "감귤을 즐기는 색다른 방법, 100% 착즙으로 마시는 감귤",
-        "제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!",
+        "제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!"
       ],
       "origin": "제주특별자치도 서귀포시",
       "delivery_method": "택배",
       "delivery_announcement": "45000원 이상 구매시 무료배송",
       "delivery_fee": 4500,
-	    "options": [],
-      "status": { "isSoldout": false, "isDiscount": true, "isRecommend": false, "isBest":true, "isPending":false },"isShow" : true
+      "options": [],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": false,
+        "isBest": true,
+        "isPending": false
+      },
+      "isShow": true
     },
     {
       "id": "12",
@@ -299,12 +329,17 @@
       "delivery_method": "택배",
       "delivery_announcement": "45000원 이상 구매시 무료배송",
       "delivery_fee": 4500,
-      "options": [
-      ],
-      "status": { "isSoldout": false, "isDiscount": true, "isRecommend": true, "isBest":false, "isPending":false
-      },"isShow" : true
+      "options": [],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": true,
+        "isBest": false,
+        "isPending": false
+      },
+      "isShow": true
     },
-        {
+    {
       "id": "13",
       "img": ["https://cdn.imweb.me/thumbnail/20220610/7902f9ea75514.jpg"],
       "title": "목감기에 좋은 건더기 없는 프리미엄 수제 착즙 유자청",
@@ -320,9 +355,9 @@
       "delivery_announcement": "50000원 이상 구매시 무료배송",
       "delivery_fee": 3500,
       "options": [
-        { "productName": "유자청 480g 2병(960g)", "price": 15200 ,"quantity":30 },
-        { "productName": "유자청 1kg 1병", "price": 13300 , "quantity":20 },
-        { "productName": "착즙유자 500ml", "price": 18800, "quantity":99 }
+        { "productName": "유자청 480g 2병(960g)", "price": 15200, "quantity": 30 },
+        { "productName": "유자청 1kg 1병", "price": 13300, "quantity": 20 },
+        { "productName": "착즙유자 500ml", "price": 18800, "quantity": 99 }
       ],
       "status": {
         "isSoldout": false,
@@ -330,7 +365,8 @@
         "isRecommend": false,
         "isBest": false,
         "isPending": false
-      },"isShow" : false
+      },
+      "isShow": false
     },
     {
       "id": "14",
@@ -351,8 +387,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "고추장 1kg", "price": 25000, "quantity":10 },
-        { "productName": "고추장 2kg", "price": 49000, "quantity":0 }
+        { "productName": "고추장 1kg", "price": 25000, "quantity": 10 },
+        { "productName": "고추장 2kg", "price": 49000, "quantity": 0 }
       ],
       "status": {
         "isSoldout": false,
@@ -360,7 +396,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "15",
@@ -381,7 +418,7 @@
       "delivery_announcement": "50,000원 이상 구매시 무료배송",
       "delivery_fee": 5000,
       "options": [
-        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50},
+        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50 },
         { "productName": "나주배선물세트 7kg 10-11과", "price": 39900, "quantity": 40 },
         { "productName": "나주배선물세트 8kg 14-15과", "price": 49900, "quantity": 3 }
       ],
@@ -391,7 +428,8 @@
         "isRecommend": true,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "16",
@@ -409,14 +447,17 @@
       "delivery_method": "택배",
       "delivery_announcement": "무료",
       "delivery_fee": 0,
-      "options": [{ "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }],
+      "options": [
+        { "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }
+      ],
       "status": {
         "isSoldout": false,
         "isDiscount": true,
         "isRecommend": true,
         "isBest": false,
         "isPending": true
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "17",
@@ -428,7 +469,7 @@
       "origin": "충청남도 청양군",
       "delivery_method": "택배",
       "delivery_announcement": "무료",
-      "delivery_fee":4000,
+      "delivery_fee": 4000,
       "options": [
         { "productName": "2kg", "price": 52000, "quantity": 10 },
         { "productName": "4kg", "price": 92000, "quantity": 15 },
@@ -440,7 +481,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
 
     {
@@ -461,11 +503,17 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "19",
-      "img": ["https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"],
+      "img": [
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"
+      ],
       "title": "반려동물과자 아기과자 동결건조 사과칩 50g (5봉지, 10봉지 묶음상품)",
       "price": 80000,
       "discount": 35000,
@@ -481,7 +529,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity" }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
@@ -489,7 +537,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "20",
@@ -506,8 +555,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "1kg", "price": 20000,"quantity":99 },
-        { "productName": "2kg", "price": 36000,"quantity":70 }
+        { "productName": "1kg", "price": 20000, "quantity": 99 },
+        { "productName": "2kg", "price": 36000, "quantity": 70 }
       ],
       "status": {
         "isSoldout": false,
@@ -515,7 +564,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "21",
@@ -545,31 +595,39 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : false
+      },
+      "isShow": false
     },
     {
       "id": "22",
       "img": [
-        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg" ],
-    "title": "청양 전통 수제 간장 500ml, 1L",
-    "price": 16000,
-    "discount": 12500,
-    "description": [
-      "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
-      "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
-    ],
-    "origin": "충청남도 청양군",
-    "delivery_method": "택배",
-    "delivery_announcement": "40000원 이상 구매시 무료배송",
-    "delivery_fee": 4000,
-    "options": [
-      { "productName": "간장 500ml", "price": 6500, "quantity": 72  },
-      { "productName": "간장 1L", "price": 12500, "quantity": 13 }
-    ],
-    "status": { "isSoldout": false, "isDiscount": true, "isRecommend": true, "isBest": false, "isPending":false
-      },"isShow" : true
+        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg"
+      ],
+      "title": "청양 전통 수제 간장 500ml, 1L",
+      "price": 16000,
+      "discount": 12500,
+      "description": [
+        "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
+        "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
+      ],
+      "origin": "충청남도 청양군",
+      "delivery_method": "택배",
+      "delivery_announcement": "40000원 이상 구매시 무료배송",
+      "delivery_fee": 4000,
+      "options": [
+        { "productName": "간장 500ml", "price": 6500, "quantity": 72 },
+        { "productName": "간장 1L", "price": 12500, "quantity": 13 }
+      ],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": true,
+        "isBest": false,
+        "isPending": false
+      },
+      "isShow": true
     },
     {
       "id": "23",
@@ -579,14 +637,21 @@
       "discount": 22500,
       "description": [
         "감귤을 즐기는 색다른 방법, 100% 착즙으로 마시는 감귤",
-        "제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!",
+        "제주 감귤이 고스란히 담긴 주스로 입맛도 돋우고, 건강도 지키세요!"
       ],
       "origin": "제주특별자치도 서귀포시",
       "delivery_method": "택배",
       "delivery_announcement": "45000원 이상 구매시 무료배송",
       "delivery_fee": 4500,
-	    "options": [],
-      "status": { "isSoldout": false, "isDiscount": true, "isRecommend": false, "isBest":true, "isPending":false },"isShow" : true
+      "options": [],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": false,
+        "isBest": true,
+        "isPending": false
+      },
+      "isShow": true
     },
     {
       "id": "24",
@@ -603,12 +668,17 @@
       "delivery_method": "택배",
       "delivery_announcement": "45000원 이상 구매시 무료배송",
       "delivery_fee": 4500,
-      "options": [
-      ],
-      "status": { "isSoldout": false, "isDiscount": true, "isRecommend": true, "isBest":false, "isPending":false
-      },"isShow" : true
+      "options": [],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": true,
+        "isBest": false,
+        "isPending": false
+      },
+      "isShow": true
     },
-        {
+    {
       "id": "25",
       "img": ["https://cdn.imweb.me/thumbnail/20220610/7902f9ea75514.jpg"],
       "title": "목감기에 좋은 건더기 없는 프리미엄 수제 착즙 유자청",
@@ -624,9 +694,9 @@
       "delivery_announcement": "50000원 이상 구매시 무료배송",
       "delivery_fee": 3500,
       "options": [
-        { "productName": "유자청 480g 2병(960g)", "price": 15200 ,"quantity":30 },
-        { "productName": "유자청 1kg 1병", "price": 13300 , "quantity":20 },
-        { "productName": "착즙유자 500ml", "price": 18800, "quantity":99 }
+        { "productName": "유자청 480g 2병(960g)", "price": 15200, "quantity": 30 },
+        { "productName": "유자청 1kg 1병", "price": 13300, "quantity": 20 },
+        { "productName": "착즙유자 500ml", "price": 18800, "quantity": 99 }
       ],
       "status": {
         "isSoldout": false,
@@ -634,7 +704,8 @@
         "isRecommend": false,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "26",
@@ -655,8 +726,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "고추장 1kg", "price": 25000, "quantity":10 },
-        { "productName": "고추장 2kg", "price": 49000, "quantity":0 }
+        { "productName": "고추장 1kg", "price": 25000, "quantity": 10 },
+        { "productName": "고추장 2kg", "price": 49000, "quantity": 0 }
       ],
       "status": {
         "isSoldout": false,
@@ -664,7 +735,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "27",
@@ -685,7 +757,7 @@
       "delivery_announcement": "50,000원 이상 구매시 무료배송",
       "delivery_fee": 5000,
       "options": [
-        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50},
+        { "productName": "나주배선물세트 5kg 7-8과", "price": 29900, "quantity": 50 },
         { "productName": "나주배선물세트 7kg 10-11과", "price": 39900, "quantity": 40 },
         { "productName": "나주배선물세트 8kg 14-15과", "price": 49900, "quantity": 3 }
       ],
@@ -695,7 +767,8 @@
         "isRecommend": true,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "28",
@@ -713,14 +786,17 @@
       "delivery_method": "택배",
       "delivery_announcement": "무료",
       "delivery_fee": 0,
-      "options": [{ "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }],
+      "options": [
+        { "productName": "거창 오가네체리자두 3kg 한 상자", "price": 29000, "quantity": 7 }
+      ],
       "status": {
         "isSoldout": false,
         "isDiscount": true,
         "isRecommend": true,
         "isBest": false,
         "isPending": true
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "29",
@@ -732,7 +808,7 @@
       "origin": "충청남도 청양군",
       "delivery_method": "택배",
       "delivery_announcement": "무료",
-      "delivery_fee":4000,
+      "delivery_fee": 4000,
       "options": [
         { "productName": "2kg", "price": 52000, "quantity": 10 },
         { "productName": "4kg", "price": 92000, "quantity": 15 },
@@ -744,7 +820,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
 
     {
@@ -765,11 +842,17 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "31",
-      "img": ["https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg", "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"],
+      "img": [
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg",
+        "https://cdn.imweb.me/thumbnail/20220714/e43ccd3949677.jpeg"
+      ],
       "title": "반려동물과자 아기과자 동결건조 사과칩 50g (5봉지, 10봉지 묶음상품)",
       "price": 80000,
       "discount": 35000,
@@ -785,7 +868,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity" }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
@@ -793,7 +876,8 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "32",
@@ -810,8 +894,8 @@
       "delivery_announcement": "40000원 이상 구매시 무료배송",
       "delivery_fee": 4000,
       "options": [
-        { "productName": "1kg", "price": 20000,"quantity":99 },
-        { "productName": "2kg", "price": 36000,"quantity":70 }
+        { "productName": "1kg", "price": 20000, "quantity": 99 },
+        { "productName": "2kg", "price": 36000, "quantity": 70 }
       ],
       "status": {
         "isSoldout": false,
@@ -819,7 +903,8 @@
         "isRecommend": false,
         "isBest": true,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "33",
@@ -849,31 +934,39 @@
         "isRecommend": true,
         "isBest": false,
         "isPending": false
-      },"isShow" : true
+      },
+      "isShow": true
     },
     {
       "id": "34",
       "img": [
-        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg", 
-        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg" ],
-    "title": "청양 전통 수제 간장 500ml, 1L",
-    "price": 16000,
-    "discount": 12500,
-    "description": [
-      "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
-      "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
-    ],
-    "origin": "충청남도 청양군",
-    "delivery_method": "택배",
-    "delivery_announcement": "40000원 이상 구매시 무료배송",
-    "delivery_fee": 4000,
-    "options": [
-      { "productName": "간장 500ml", "price": 6500, "quantity": 72  },
-      { "productName": "간장 1L", "price": 12500, "quantity": 13 }
-    ],
-    "status": { "isSoldout": false, "isDiscount": true, "isRecommend": true, "isBest": false, "isPending":false
-      },"isShow" : true
+        "https://cdn.imweb.me/thumbnail/20220622/df2bb0824be20.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/be1433c679d82.jpg",
+        "https://cdn.imweb.me/thumbnail/20220622/e0e5cda8ff193.jpg"
+      ],
+      "title": "청양 전통 수제 간장 500ml, 1L",
+      "price": 16000,
+      "discount": 12500,
+      "description": [
+        "국내산 청양 콩으로 만들어 더욱 맛있고 건강한 수제 간장",
+        "엄마의 마음으로 건강한 재료들을 엄선하고 준비하여 정성으로 담았습니다."
+      ],
+      "origin": "충청남도 청양군",
+      "delivery_method": "택배",
+      "delivery_announcement": "40000원 이상 구매시 무료배송",
+      "delivery_fee": 4000,
+      "options": [
+        { "productName": "간장 500ml", "price": 6500, "quantity": 72 },
+        { "productName": "간장 1L", "price": 12500, "quantity": 13 }
+      ],
+      "status": {
+        "isSoldout": false,
+        "isDiscount": true,
+        "isRecommend": true,
+        "isBest": false,
+        "isPending": false
+      },
+      "isShow": true
     }
   ]
 }

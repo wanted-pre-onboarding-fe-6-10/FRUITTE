@@ -3,7 +3,7 @@ import OrderTitle from './components/OrderTitle';
 import Payment from './components/Payment';
 import ProductInfo from './components/Product';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // order-content dummy data
 const OrderContentDummy = {
@@ -18,7 +18,7 @@ const OrderContentDummy = {
     isDiscount: true,
   },
   payment_info: {
-    method: false, // true = 카드결제, false = 무통장입금
+    method: true, // true = 카드결제, false = 무통장입금
     total: 16800,
     card: '1234 5678 9101 1121',
     account: {
@@ -42,15 +42,15 @@ const OrderContentDummy = {
 };
 
 const OrderContent = () => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <OrderTitle orderInfo={OrderContentDummy} />
       <ProductInfo orderInfo={OrderContentDummy} />
       <Payment orderInfo={OrderContentDummy} />
       <Shipping orderInfo={OrderContentDummy} />
-      <Link to="/">
-        <RedirectButton>홈으로</RedirectButton>
-      </Link>
+      <RedirectButton onClick={() => navigate('/')}>홈으로</RedirectButton>
     </Container>
   );
 };
@@ -62,7 +62,7 @@ const Container = styled.div`
 `;
 
 const RedirectButton = styled.button`
-  width: 100%;
+  width: 40%;
   background-color: ${props => props.theme.ownColor};
   color: ${props => props.theme.boxColor};
   margin: 10px;
