@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 import Order from './pages/Order/Order';
+import Register from './pages/Register/Register';
 
 const Router = () => {
   return (
@@ -9,6 +10,7 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Order />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>
