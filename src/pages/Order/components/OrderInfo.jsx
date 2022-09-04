@@ -8,9 +8,7 @@ const OrderInfo = props => {
       <BoxTitle title={'주문 상품 정보'} />
       <OrderWrapper>
         {props.orderInfo.map((ele, i) => (
-          <>
-            <ProductList key={ele.company + i} order={ele} />
-          </>
+          <ProductList key={ele.company + ele.deliveryFee} order={ele} />
         ))}
       </OrderWrapper>
     </>

@@ -38,6 +38,7 @@ const OrderDummy = [
           isPending: false,
         },
         isShow: true,
+        option: [{ number: 0, quantity: 1 }],
       },
       {
         id: '2',
@@ -69,6 +70,7 @@ const OrderDummy = [
           isPending: false,
         },
         isShow: true,
+        option: [{ number: 0, quantity: 1 }],
       },
     ],
     deliveryFee: 3000,
@@ -104,6 +106,7 @@ const OrderDummy = [
           isPending: false,
         },
         isShow: true,
+        option: [{ number: 0, quantity: 1 }],
       },
       {
         id: '2',
@@ -135,6 +138,7 @@ const OrderDummy = [
           isPending: false,
         },
         isShow: true,
+        option: [{ number: 0, quantity: 1 }],
       },
     ],
     deliveryFee: 0,

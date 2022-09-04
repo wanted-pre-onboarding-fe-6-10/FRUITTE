@@ -10,18 +10,18 @@ const ShippingInfo = () => {
   const selectAddress = () => {};
   return (
     <>
-      <BoxTitle title={'배송 정보'} />
+      <BoxTitle title="배송 정보" />
       <CheckBoxWrapper>
-        <CheckBox type="checkbox"></CheckBox>
+        <CheckBox type="checkbox" />
         <Label>주문자 정보와 동일</Label>
       </CheckBoxWrapper>
       <InputBox>
-        <Input placeholder={'수령인'} />
-        <Input placeholder={'연락처'} />
+        <Input placeholder="수령인" />
+        <Input placeholder="연락처" />
         <PostWrapper onClick={PostModalControl}>
-          <Input placeholder={'우편번호'} />
-          <Input placeholder={'주소'} />
-          <Input placeholder={'상세주소'} />
+          <Input placeholder="우편번호" />
+          <Input placeholder="주소" />
+          <Input placeholder="상세주소" />
         </PostWrapper>
         <Select>
           <Option>배송메모를 선택해주세요.</Option>
@@ -34,7 +34,7 @@ const ShippingInfo = () => {
       {openPostcode && (
         <DaumPostcodeBox onClick={PostModalControl}>
           <DaumPostcodeWrapper>
-            <BoxTitle title={'주소 찾기'} />
+            <BoxTitle title="주소 찾기" />
             <DaumPostcode
               onComplete={selectAddress} // 값을 선택할 경우 실행되는 이벤트
               autoClose={false} // 값을 선택할 경우 사용되는 DOM을 제거하여 자동 닫힘 설정
