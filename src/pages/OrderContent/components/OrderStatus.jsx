@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 
-const OrderStatus = () => {
-  const payWithCard = false;
-  const paymentTitle = payWithCard ? '결제완료' : '주문완료';
-  const paymentDescription = payWithCard
-    ? '결제가 완료되었습니다.'
-    : '아래 계좌로 입금해 주시면 결제가 완료됩니다.';
+const OrderStatus = ({ payMethod }) => {
+  const paymentStatus = payMethod
+    ? { title: '결제완료', description: '결제가 완료되었습니다.' }
+    : { title: '주문완료', description: '아래 계좌로 입금해 주시면 결제가 완료됩니다.' };
 
   return (
     <Box>
-      <MainText>{paymentTitle}</MainText>
-      <SubText>{paymentDescription}</SubText>
+      <MainText>{paymentStatus.title}</MainText>
+      <SubText>{paymentStatus.description}</SubText>
     </Box>
   );
 };
 const Box = styled.div`
   margin: 20px;
+  width: 50%;
 `;
 
 const MainText = styled.h1`
