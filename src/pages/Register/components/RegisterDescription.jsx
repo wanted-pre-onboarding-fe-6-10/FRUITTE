@@ -9,8 +9,7 @@ const RegisterDescription = () => {
   return (
     <RegisterBox title={'상세설명'}>
       <RegisterContentWrapper>
-        <RegisterTitleWrapper></RegisterTitleWrapper>
-        <RegisterInputWrapper></RegisterInputWrapper>
+        <input style={{ width: '100%' }} type="text" />
       </RegisterContentWrapper>
     </RegisterBox>
   );

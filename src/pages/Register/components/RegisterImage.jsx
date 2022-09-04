@@ -11,6 +11,7 @@ const RegisterImage = () => {
       <RegisterContentWrapper>
         <RegisterTitleWrapper></RegisterTitleWrapper>
         <RegisterInputWrapper></RegisterInputWrapper>
+        <input type="file" />
       </RegisterContentWrapper>
     </RegisterBox>
   );

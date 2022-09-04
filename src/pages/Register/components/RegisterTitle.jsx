@@ -3,10 +3,15 @@
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
 
-const RegisterTitle = () => {
+const RegisterTitle = ({ data, setData }) => {
   return (
     <RegisterBox title={'상품명'}>
-      <input type="text" placeholder="상품명을 입력해주세요" />
+      <input
+        style={{ height: '35px' }}
+        type="text"
+        placeholder="상품명을 입력해주세요"
+        onChange={e => setData({ ...data, title: e.target.value })}
+      />
     </RegisterBox>
   );
 };
