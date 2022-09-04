@@ -190,7 +190,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity": 3 }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
@@ -529,7 +529,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity": 0 }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
@@ -868,7 +868,7 @@
       "delivery_fee": "0",
       "options": [
         { "productName": "5봉지", "price": 35000, "quantity": 23 },
-        { "productName": "10봉지", "price": 65000, "quantity": 99 }
+        { "productName": "10봉지", "price": 65000, "quantity": 10 }
       ],
       "status": {
         "isSoldout": false,
