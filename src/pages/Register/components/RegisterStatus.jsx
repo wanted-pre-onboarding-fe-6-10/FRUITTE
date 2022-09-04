@@ -1,11 +1,10 @@
 // 판매 상태 정보 입력 컴포넌트 => 두개의 버튼으로 설정하거나 안하거나로 구분하면 될듯
 
-import { useState } from 'react';
 import RegisterBox from './common/RegisterBox';
 import RegisterContent from './common/RegisterContent';
 
 const RegisterStatus = ({ data, setData }) => {
-  const contentList = ['할인', '매진', '추천', 'Best', '대기'];
+  // const contentList = ['할인', '매진', '추천', 'Best', '대기'];
   return (
     <RegisterBox title={'상품상태'}>
       <RegisterContent title={'할인'}>

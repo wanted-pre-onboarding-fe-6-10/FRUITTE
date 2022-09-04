@@ -1,6 +1,5 @@
 // 그냥 가격만 입력받는데 이 부분이 애매해서 status 입력 부분과 합쳐도 될듯
 
-import { useState } from 'react';
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
 import RegisterContent from './common/RegisterContent';
