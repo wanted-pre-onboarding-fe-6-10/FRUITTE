@@ -73,6 +73,7 @@ const GoodsForm = ({ data }) => {
       `PROD_SELECTED_OPTION_${data.id}`,
       JSON.stringify({
         prodIdx: data.id,
+        prodName: data.title,
         options: selectedItems,
         thumbnail: data.img[0],
         delivery_fee: 0,
