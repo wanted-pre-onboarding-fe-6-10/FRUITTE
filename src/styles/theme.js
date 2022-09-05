@@ -7,6 +7,10 @@ export const lightTheme = {
   bgColor: '#ffffff',
   // 주문하기 배경색상
   subBgColor: '#eeeeee',
+  // 옵션 아이템 배경색상
+  lightBgColor: '#F9F9F9',
+  // 옵션 아이템 배경색상
+  orderBgColor: '#e9e9e9',
   // 일반 글씨
   textColor: '#333333',
   // 가격할인이나 기타 회색으로 처리해야되는 부분
@@ -20,5 +24,7 @@ export const lightTheme = {
   // footer
   subBoxColor: '#eeeeee',
   // 일반 박스(best, md)
-  borderColor: '#eeeeee',
+  borderColor: '#ccc',
+  // 정보 텍스트 색상
+  lightTextColor: '#B8B8B8',
 };
