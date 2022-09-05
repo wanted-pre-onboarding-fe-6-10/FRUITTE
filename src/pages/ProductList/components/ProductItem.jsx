@@ -12,22 +12,20 @@ const ProductItem = ({ product }) => {
     navigate(`/fruitstore/${idx}`);
   };
   return (
-    product.isShow && (
-      <ProductItemBlock onClick={() => toDetailProduct(product.id)}>
-        <Image src={product.img[0]} alt="productImg" />
-        <Title>{product.title}</Title>
-        <Price>
-          {addComma(product.discount)}원 <span>{addComma(product.price)}원</span>
-        </Price>
-        <StatusBlock>
-          {product.status.isDiscount === true && <Status discount>SALE</Status>}
-          {product.status.isBest && <Status best>BEST</Status>}
-          {product.status.isRecommend && <Status commonStatus>MD</Status>}
-          {product.status.isPending && <Status commonStatus>판매대기</Status>}
-          {product.status.isSoldout && <Status sold>SOLDOUT</Status>}
-        </StatusBlock>
-      </ProductItemBlock>
-    )
+    <ProductItemBlock onClick={() => toDetailProduct(product.id)}>
+      <Image src={product.img[0]} alt="productImg" />
+      <Title>{product.title}</Title>
+      <Price>
+        {addComma(product.discount)}원 <span>{addComma(product.price)}원</span>
+      </Price>
+      <StatusBlock>
+        {product.status.isDiscount === true && <Status discount>SALE</Status>}
+        {product.status.isBest && <Status best>BEST</Status>}
+        {product.status.isRecommend && <Status commonStatus>MD</Status>}
+        {product.status.isPending && <Status commonStatus>판매대기</Status>}
+        {product.status.isSoldout && <Status sold>SOLDOUT</Status>}
+      </StatusBlock>
+    </ProductItemBlock>
   );
 };
 
