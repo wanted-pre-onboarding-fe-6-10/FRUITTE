@@ -42,8 +42,8 @@ const StoreInfo = () => {
         <NavInfo>
           <NavTagTitle>FRUITTE</NavTagTitle>
           <NavTagTitle>FRUIT NOW</NavTagTitle>
-          <NavTagLink href="/fruitstore">
-            <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
+          <NavTagLink href="/">
+            <NavTagTitle checkPathname={checkPathname('/')}>FRUIT STORE</NavTagTitle>
           </NavTagLink>
           <NavTagTitle>FRUID PLAY</NavTagTitle>
           <NavTagTitle>ABOUT US</NavTagTitle>
