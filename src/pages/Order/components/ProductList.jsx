@@ -14,6 +14,6 @@ const OrderList = ({ productList, deliveryFee }) => {
 
 // styled-components 위치
 const OrderWrapper = styled.div`
-  border: 1px solid;
+  border: 1px solid ${props => props.theme.borderColor};
 `;
 export default OrderList;
