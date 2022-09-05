@@ -8,6 +8,8 @@ import SelectedItemQuantitySelector from './SelectedItemQuantitySelector';
 
 const GoodsForm = ({ data }) => {
   const [option, setOption] = useState();
+  const [singleQuantity, setSingleQuantity] = useState('1');
+
   const [triggerQuantityRefresh, setTriggerQuantityRefresh] = useState(true);
 
   const [selectedItems, setSelectedItems] = useState(
@@ -181,7 +183,7 @@ const GoodsForm = ({ data }) => {
                 <SelectedItemQuantitySelector
                   opIdx={idx}
                   state={item.quantity}
-                  setQuantity={handleSelectQuantity}
+                  setQuantity={setSingleQuantity}
                 />
                 <SelectedItemPrice>{addComma(item.priceSum)}원</SelectedItemPrice>
               </SelectedItemRow>
@@ -202,16 +204,18 @@ const GoodsForm = ({ data }) => {
             <SelectedItemRow triggerQuantityRefresh>
               <SelectedItemQuantitySelector
                 opIdx={0}
-                state={selectedItems[0].quantity}
+                state={singleQuantity}
                 setQuantity={handleSelectQuantity}
               />
               <SelectedItemPrice>{addComma(selectedItems[0].priceSum)}원</SelectedItemPrice>
             </SelectedItemRow>
           </SelectedItem>
           <TotalPriceRow>
-            <div>총 상품금액({selectedItems.reduce((sum, curr) => sum + curr.quantity, 0)}개)</div>
+            <div>
+              총 상품금액({selectedItems[0].reduce((sum, curr) => sum + curr.quantity, 0)}개)
+            </div>
             <TotalPrice>
-              {addComma(selectedItems.reduce((sum, curr) => sum + curr.priceSum, 0))}원
+              {addComma(selectedItems[0].reduce((sum, curr) => sum + curr.priceSum, 0))}원
             </TotalPrice>
           </TotalPriceRow>
         </>
