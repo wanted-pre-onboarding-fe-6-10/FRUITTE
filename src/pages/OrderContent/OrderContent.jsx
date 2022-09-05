@@ -5,7 +5,6 @@ import ProductInfo from './components/Product';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import InfoMenu from './components/InfoMenu';
 import TotalPrice from './components/TotalPrice';
 
 // order-content dummy data
@@ -86,6 +85,7 @@ const RedirectButton = styled.button`
   margin-bottom: 20px;
   border: none;
   color: ${props => props.theme.boxColor};
+  cursor: pointer;
   &:hover {
     background-color: ${props => props.theme.ownColorHover};
   }
