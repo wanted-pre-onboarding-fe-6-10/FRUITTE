@@ -2,11 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
 import RegisterModal from './RegisterModal';
-import {
-  RegisterContentWrapper,
-  RegisterInputWrapper,
-  RegisterTitleWrapper,
-} from './common/RegisterContent';
+import { RegisterTitleWrapper } from './common/RegisterContent';
 // 이미지 등록하고 미리보기 볼 수 있는 컴포넌트
 const RegisterImage = ({ data, setData }) => {
   const [imgUrls, setImgUrls] = useState([]);

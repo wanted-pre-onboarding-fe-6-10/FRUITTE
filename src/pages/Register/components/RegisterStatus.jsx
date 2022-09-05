@@ -1,5 +1,3 @@
-// 판매 상태 정보 입력 컴포넌트 => 두개의 버튼으로 설정하거나 안하거나로 구분하면 될듯
-
 import { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../../components/Button';
@@ -74,7 +72,6 @@ const RegisterStatus = ({ data, setData }) => {
         <PendingButton active={!isPending} size={'medium'} onClick={onPending}>
           설정안함
         </PendingButton>
-        {/* <RegisterButton size="medium">hi</RegisterButton> */}
       </RegisterContent>
     </RegisterBox>
   );
