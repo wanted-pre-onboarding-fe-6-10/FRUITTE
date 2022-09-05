@@ -20,7 +20,6 @@ const Router = () => {
       <Nav onToggle={onToggle} />
       <Routes>
         <Route path="/fruitstore" element={<ProductList toggle={toggle} onToggle={onToggle} />} />
-        <Route path="/fruitstore" element={<ProductList />} />
         <Route path="/order" element={<Order />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register_list" element={<RegisterList />} />
