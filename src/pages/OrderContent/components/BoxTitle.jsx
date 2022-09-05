@@ -5,7 +5,9 @@ const BoxTitle = ({ title }) => {
 };
 
 const Title = styled.h1`
-  color: ${props => props.theme.textColor};
+  padding: 1em 2em;
+  color: ${props => props.theme.ownColor};
+  font-weight: bold;
 `;
 
 export default BoxTitle;
