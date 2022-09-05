@@ -7,6 +7,8 @@ const BoxTitle = ({ title }) => {
 // styled-components 위치
 const Text = styled.h1`
   color: ${props => props.theme.textColor};
-  font-size: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 0;
 `;
 export default BoxTitle;

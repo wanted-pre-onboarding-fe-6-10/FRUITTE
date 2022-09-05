@@ -2,36 +2,102 @@ import * as React from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import styled from 'styled-components';
 import BoxTitle from './BoxTitle';
-const ShippingInfo = () => {
+import { Input, Select } from '../../../components/Input';
+const ShippingInfo = ({ formData, setFormData }) => {
   const [openPostcode, setOpenPostcode] = React.useState(false);
+  const recipientAddress2 = React.useRef(null);
+
   const PostModalControl = () => {
     setOpenPostcode(current => !current);
   };
   const selectAddress = e => {
-    console.log(e);
+    setFormData({
+      ...formData,
+      recipientPostCode: e.zonecode,
+      recipientAddress1: e.address + '(' + e.bname + ')',
+    });
+    PostModalControl();
+    recipientAddress2.current.focus();
   };
+
   return (
     <>
       <BoxTitle title="배송 정보" />
       <CheckBoxWrapper>
-        <CheckBox type="checkbox" />
+        <CheckBox
+          type="checkbox"
+          onChange={e => {
+            if (e.target.checked)
+              setFormData({
+                ...formData,
+                recipientName: formData.ordererName,
+                recipientContact: formData.ordererContact,
+              });
+          }}
+        />
         <Label>주문자 정보와 동일</Label>
       </CheckBoxWrapper>
       <InputBox>
-        <Input placeholder="수령인" />
-        <Input placeholder="연락처" />
+        <InputWrapper>
+          <TextInputWrapper>
+            <TextInput
+              placeholder="수령인"
+              value={formData.recipientName}
+              onChange={e => setFormData({ ...formData, recipientName: e.target.value })}
+            />
+          </TextInputWrapper>
+          <TextInputWrapper>
+            <TextInput
+              placeholder="연락처"
+              value={formData.recipientContact}
+              onChange={e => setFormData({ ...formData, recipientContact: e.target.value })}
+            />
+          </TextInputWrapper>
+        </InputWrapper>
         <PostWrapper onClick={PostModalControl}>
-          <Input placeholder="우편번호" />
-          <Input placeholder="주소" />
-          <Input placeholder="상세주소" />
+          <InputWrapper>
+            <TextInputWrapper>
+              <TextInput
+                placeholder="우편번호"
+                value={formData.recipientPostCode}
+                onChange={e => setFormData({ ...formData, recipientPostCode: e.target.value })}
+              />
+            </TextInputWrapper>
+          </InputWrapper>
+          <InputWrapper>
+            <TextInputWrapper>
+              <TextInput
+                placeholder="주소"
+                value={formData.recipientAddress1}
+                onChange={e => setFormData({ ...formData, recipientAddress1: e.target.value })}
+              />
+            </TextInputWrapper>
+          </InputWrapper>
         </PostWrapper>
-        <Select>
-          <Option>배송메모를 선택해주세요.</Option>
-          <Option>배송 전에 미리 연락 바랍니다</Option>
-          <Option>부재시 경비실에 맡겨주세요.</Option>
-          <Option>부재시 전화나 문자를 남겨주세요.</Option>
-          <Option>직접입력</Option>
-        </Select>
+        <InputWrapper>
+          <TextInputWrapper>
+            <TextInput
+              ref={recipientAddress2}
+              placeholder="상세주소"
+              value={formData.recipientAddress2}
+              onChange={e => setFormData({ ...formData, recipientAddress2: e.target.value })}
+            />
+          </TextInputWrapper>
+        </InputWrapper>
+        <InputWrapper>
+          <CustomSelect
+            value={formData.shippingMemo}
+            onChange={e => setFormData({ ...formData, shippingMemo: e.target.value })}
+          >
+            <Option value="배송메모를 선택해주세요.">배송메모를 선택해주세요.</Option>
+            <Option value="배송 전에 미리 연락 바랍니다.">배송 전에 미리 연락 바랍니다.</Option>
+            <Option value="부재시 경비실에 맡겨주세요.">부재시 경비실에 맡겨주세요.</Option>
+            <Option value="부재시 전화나 문자를 남겨주세요.">
+              부재시 전화나 문자를 남겨주세요.
+            </Option>
+            <Option value="직접입력">직접입력</Option>
+          </CustomSelect>
+        </InputWrapper>
       </InputBox>
       {openPostcode && (
         <DaumPostcodeBox onClick={PostModalControl}>
@@ -71,14 +137,28 @@ const CheckBox = styled.input``;
 const Label = styled.label`
   color: ${props => props.theme.textColor};
 `;
-const Input = styled.input`
-  width: 100%;
-`;
-const Select = styled.select`
-  width: 100%;
-`;
+
 const Option = styled.option`
   width: 100%;
+`;
+const TextInputWrapper = styled.div`
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const CustomSelect = styled(Select)`
+  flex: 1;
+  padding: 7px 10.5px;
+  margin: 5px;
+`;
+const TextInput = styled(Input)`
+  flex: 1;
+  padding: 7px 10.5px;
 `;
 const InputBox = styled.div``;
 export default ShippingInfo;

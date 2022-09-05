@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-
+import addComma from '../../../utils/addComma';
 const DeliveryFee = ({ deliveryFee }) => {
-  return <Text>배송비 : {deliveryFee !== 0 ? deliveryFee : '무료'}</Text>;
+  return <Text>배송비 : {deliveryFee !== 0 ? addComma(deliveryFee) + ' 원' : '무료'}</Text>;
 };
 
 // styled-components 위치
