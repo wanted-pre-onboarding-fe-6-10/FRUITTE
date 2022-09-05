@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import BoxTitle from './BoxTitle';
 import Button from '../../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = ({ formData, setFormData }) => {
+  const navigate = useNavigate();
   const handleChange = e => {
     switch (e.target.name) {
       case 'allAgree':
@@ -53,7 +55,7 @@ const Payment = ({ formData, setFormData }) => {
         />
         <Label>구매조건 확인 및 결제진행에 동의</Label>
       </CheckBoxWrapper>
-      <ButtonBox>
+      <ButtonBox onClick={() => navigate('/ordercontent')}>
         <Button size="large" fullWidth={true} onClick={getData}>
           결제하기
         </Button>
