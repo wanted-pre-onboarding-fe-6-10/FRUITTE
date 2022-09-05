@@ -1,13 +1,11 @@
-// 상품 이름 입력 컴포넌트
-
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
+import { Input } from './../../../components/Input';
 
 const RegisterTitle = ({ data, setData }) => {
   return (
     <RegisterBox title={'상품명'}>
-      <input
-        style={{ height: '35px' }}
+      <RegisterInput
         type="text"
         placeholder="상품명을 입력해주세요"
         onChange={e => setData({ ...data, title: e.target.value })}
@@ -16,9 +14,16 @@ const RegisterTitle = ({ data, setData }) => {
   );
 };
 
-const Line = styled.hr`
-  border: 0.5px solid;
-  color: ${props => props.theme.subBgColor};
+export const RegisterInput = styled(Input)`
+  height: 40px;
+  border: 1px solid ${props => props.theme.textColor};
+  &:hover {
+    border: 2px solid black;
+  }
+  &::placeholder {
+    font-size: 14px;
+    color: ${props => props.theme.subTextColor};
+  }
 `;
 
 export default RegisterTitle;
