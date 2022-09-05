@@ -161,8 +161,15 @@ const Title = styled.div`
 const LeftWrapper = styled.div`
   color: ${props => props.theme.ownColor};
   border-width: 1px;
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 `;
 const RightWrapper = styled.div`
   color: ${props => props.theme.ownColor};
+
+  @media (min-width: 1024px) {
+    width: 40%;
+  }
 `;
 export default Order;

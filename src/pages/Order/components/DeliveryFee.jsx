@@ -6,6 +6,8 @@ const DeliveryFee = ({ deliveryFee }) => {
 
 // styled-components 위치
 const Text = styled.div`
+  padding: 20px;
+  font-size: 15px;
   text-align: center;
   background-color: ${props => props.theme.subBgColor};
   color: ${props => props.theme.textColor};

@@ -42,6 +42,7 @@ const PaymentMethod = ({ formData, setFormData }) => {
 
 // styled-components 위치
 const RadioBox = styled.div`
+  margin: 10px 0;
   display: flex;
 `;
 const RadioWrapper = styled.div`

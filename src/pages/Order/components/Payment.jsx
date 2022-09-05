@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import BoxTitle from './BoxTitle';
+import Button from '../../../components/Button';
+
 const Payment = ({ formData, setFormData }) => {
   const handleChange = e => {
     switch (e.target.name) {
@@ -52,19 +54,21 @@ const Payment = ({ formData, setFormData }) => {
         <Label>구매조건 확인 및 결제진행에 동의</Label>
       </CheckBoxWrapper>
       <ButtonBox>
-        <Button onClick={getData}>결제하기</Button>
+        <Button size="large" fullWidth={true} onClick={getData}>
+          결제하기
+        </Button>
       </ButtonBox>
     </>
   );
 };
 
 // styled-components 위치
-const CheckBoxWrapper = styled.div``;
+const CheckBoxWrapper = styled.div`
+  margin: 10px 0;
+`;
 const CheckBox = styled.input``;
 const ButtonBox = styled.div``;
-const Button = styled.button`
-  width: 100%;
-`;
+
 const Label = styled.label`
   color: ${props => props.theme.textColor};
 `;

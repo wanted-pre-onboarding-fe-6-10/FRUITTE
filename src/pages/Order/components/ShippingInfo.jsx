@@ -1,6 +1,8 @@
 import * as React from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import styled from 'styled-components';
+import Modal from 'react-modal';
+
 import BoxTitle from './BoxTitle';
 import { Input, Select } from '../../../components/Input';
 const ShippingInfo = ({ formData, setFormData }) => {
@@ -10,6 +12,7 @@ const ShippingInfo = ({ formData, setFormData }) => {
   const PostModalControl = () => {
     setOpenPostcode(current => !current);
   };
+
   const selectAddress = e => {
     setFormData({
       ...formData,
@@ -18,6 +21,17 @@ const ShippingInfo = ({ formData, setFormData }) => {
     });
     PostModalControl();
     recipientAddress2.current.focus();
+  };
+  const modalStyle = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#ffffff',
+    },
   };
 
   return (
@@ -100,7 +114,7 @@ const ShippingInfo = ({ formData, setFormData }) => {
         </InputWrapper>
       </InputBox>
       {openPostcode && (
-        <DaumPostcodeBox onClick={PostModalControl}>
+        <Modal isOpen={openPostcode} onRequestClose={() => PostModalControl()} style={modalStyle}>
           <DaumPostcodeWrapper>
             <BoxTitle title="주소 찾기" />
             <DaumPostcode
@@ -109,7 +123,7 @@ const ShippingInfo = ({ formData, setFormData }) => {
               defaultQuery="" // 팝업을 열때 기본적으로 입력되는 검색어
             />
           </DaumPostcodeWrapper>
-        </DaumPostcodeBox>
+        </Modal>
       )}
     </>
   );

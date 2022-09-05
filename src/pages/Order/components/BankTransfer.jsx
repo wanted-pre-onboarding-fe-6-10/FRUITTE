@@ -81,6 +81,7 @@ const BankTransfer = ({ formData, setFormData }) => {
 
 // styled-components 위치
 const Text = styled.h1`
+  margin: 10px 0;
   color: ${props => props.theme.subTextColor};
 `;
 
@@ -91,10 +92,13 @@ const Option = styled.option`
 const Line = styled.div`
   height: 1px;
   width: 100%;
+  margin: 20px 0;
   border-bottom: 1px solid;
   color: ${props => props.theme.borderColor};
 `;
-const CheckBoxWrapper = styled.div``;
+const CheckBoxWrapper = styled.div`
+  margin: 20px 0;
+`;
 const CheckBox = styled.input``;
 const Label = styled.label`
   color: ${props => props.theme.textColor};
@@ -111,9 +115,9 @@ const Radio = styled.input`
   /* width: 100%; */
 `;
 const CustomSelect = styled(Select)`
-  margin: 5px;
+  margin: 10px 5px;
 `;
 const TextInput = styled(Input)`
-  margin: 5px;
+  margin: 10px 5px;
 `;
 export default BankTransfer;
