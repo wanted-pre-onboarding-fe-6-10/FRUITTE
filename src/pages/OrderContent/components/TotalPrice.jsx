@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import addComma from '../../../utils/addComma';
-import InfoMenu from './InfoMenu';
 
 const TotalPrice = ({ orderInfo }) => {
   const productInfo = orderInfo.product;
@@ -26,9 +25,9 @@ const TotalPrice = ({ orderInfo }) => {
 const Box = styled.div`
   width: 40%;
   padding: 0 2em;
+  margin: -1px;
   background-color: ${props => props.theme.bgColor};
-  border-left: ${props => `1px solid ${props.theme.borderColor}`};
-  border-right: ${props => `1px solid ${props.theme.borderColor}`};
+  border: ${props => `1px solid ${props.theme.borderColor}`};
   @media (max-width: 650px) {
     width: 100%;
   }
@@ -52,15 +51,15 @@ const Title = styled.h1`
   font-size: 1em;
   text-align: right;
   font-weight: bold;
-  padding-right: 20px;
+  padding: 0 1em;
 `;
 
 const SubTitle = styled.h1`
   width: 50%;
   color: ${props => props.theme.subTextColor};
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: right;
-  padding-right: 20px;
+  padding: 0 1em;
 `;
 
 const PriceInfo = styled.h1`
@@ -70,16 +69,16 @@ const PriceInfo = styled.h1`
   font-size: 1em;
   font-weight: bold;
   text-align: left;
-  padding-left: 20px;
+  padding: 0 1em;
 `;
 
 const PriceDetail = styled.h1`
   width: 50%;
   color: ${props => props.theme.subTextColor};
   white-space: pre-wrap;
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: left;
-  padding-left: 20px;
+  padding: 0 1em;
 `;
 
 export default TotalPrice;

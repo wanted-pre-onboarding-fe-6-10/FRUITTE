@@ -49,7 +49,7 @@ const OrderContent = () => {
   const [orderData, setOrderData] = useState([]);
 
   const getOrderData = () => {
-    const data = JSON.parse(sessionStorage.getItem(''));
+    const data = JSON.parse(sessionStorage.getItem('orderData'));
     setOrderData(data);
   };
 
@@ -82,6 +82,7 @@ const RedirectButton = styled.button`
   background-color: ${props => props.theme.ownColor};
   font-size: 1em;
   font-weight: bold;
+  margin-top: -1px;
   margin-bottom: 20px;
   border: none;
   color: ${props => props.theme.boxColor};

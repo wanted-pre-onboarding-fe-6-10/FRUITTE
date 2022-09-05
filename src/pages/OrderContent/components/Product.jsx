@@ -7,8 +7,6 @@ const ProductInfo = ({ orderInfo }) => {
   const productName = productInfo.name;
   const isDiscount = productInfo.isDiscount;
   const discount = isDiscount ? productInfo.discount : productInfo.price;
-  const deliveryFee = productInfo.delivery_fee;
-  const totalPrice = discount + productInfo.delivery_fee;
 
   return (
     <ProductBox>
@@ -17,7 +15,6 @@ const ProductInfo = ({ orderInfo }) => {
         <Text>{productName}</Text>
         <SubText>{productInfo.option}</SubText>
         <SubText>상품금액: {addComma(discount) + '원'}</SubText>
-        <SubText>배송비: {addComma(deliveryFee) + '원'}</SubText>
       </Wrapper>
     </ProductBox>
   );
@@ -45,19 +42,19 @@ const Wrapper = styled.div`
   width: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 10px;
 `;
 
 const Text = styled.h1`
   color: ${props => props.theme.textColor};
   font-weight: ${props => props.bold};
-  font-size: 0.9em;
+  font-size: 1em;
 `;
 
 const SubText = styled.h1`
   color: ${props => props.theme.subTextColor};
-  font-size: 0.8em;
+  font-size: 0.9em;
 `;
 
 const ProductImage = styled.img.attrs(props => ({
