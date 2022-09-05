@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import ResposiveNav from './ResposiveNav';
 
-const Nav = () => {
+const Nav = ({ onToggle }) => {
+  const user = localStorage.getItem('who');
+
   return (
     <>
       <Container>
@@ -17,16 +19,21 @@ const Nav = () => {
                 <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
               </NavTagLink>
             </NavTagWrapper>
-            <NavTagWrapper>
-              <NavTagLink href="/register">
-                <NavTagTitle checkPathname={checkPathname('/register')}>ADMIN</NavTagTitle>
-              </NavTagLink>
-            </NavTagWrapper>
+            {user === 'admin' && (
+              <NavTagWrapper>
+                <NavTagLink href="/register">
+                  <NavTagTitle checkPathname={checkPathname('/register')}>ADMIN</NavTagTitle>
+                </NavTagLink>
+              </NavTagWrapper>
+            )}
           </NavTagBox>
           <AuthBox>
             <AuthWrapper>
-              <Auth>login</Auth>
-              <Auth>join</Auth>
+              {!user && (
+                <>
+                  <Auth onClick={onToggle}>login</Auth> <Auth>join</Auth>
+                </>
+              )}
             </AuthWrapper>
           </AuthBox>
         </NavBox>

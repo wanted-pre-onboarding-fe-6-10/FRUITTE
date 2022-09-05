@@ -18,7 +18,7 @@ const GoodsDetailTab = () => {
           구매평<CountIndex>({'0'})</CountIndex>
         </Tab>
         <Tab href="#prod_detail_qna" focused={focus === 2} onClick={() => setFocus(2)}>
-          Q&A<CountIndex>({'todo'})</CountIndex>
+          Q&A<CountIndex>({'0'})</CountIndex>
         </Tab>
         {/* <Tab onClick={() => navigate({ path: '/#prod_detail_review', search: '?idx=123' })}> */}
       </Tabs>

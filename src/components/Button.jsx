@@ -142,6 +142,7 @@ const StyledButton = styled.button`
   font-weight: bold;
   cursor: pointer;
   padding: 0 1rem;
+  justify-content: center;
 
   /* 크기 */
   ${sizeStyles}
