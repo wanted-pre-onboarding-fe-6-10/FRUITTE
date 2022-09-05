@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { HiOutlineTrash } from 'react-icons/hi';
 import addComma from '../../../utils/addComma';
-import { lightTheme } from '../../../styles/theme';
 import { TdEL } from './TdEl';
 
 const ProductTable = ({ data, setProductData }) => {
@@ -53,7 +52,7 @@ const ProductTable = ({ data, setProductData }) => {
       </TdEL>
       <TdEL>{data.options.length > 0 ? data.options[0].quantity : 70}</TdEL>
       <TdEL rowSpan={rowLength}>{data.delivery_method}</TdEL>
-      <TdEL rowSpan={rowLength}>{data.delivery_fee}</TdEL>
+      <TdEL rowSpan={rowLength}>{addComma(data.delivery_fee)}원</TdEL>
       <TdEL rowSpan={rowLength}>
         {data.status.isSoldout && <Status>품절</Status>}
         {data.status.isDiscount && <Status>할인</Status>}
@@ -87,7 +86,7 @@ const Status = styled.span`
 `;
 
 const ShowBtn = styled.button.attrs({ type: 'button' })`
-  background-color: ${prop => (prop.isShow ? lightTheme.ownColor : 'gray')};
+  background-color: ${prop => (prop.isShow ? '#ea9b28' : 'gray')};
   color: white;
   border-radius: 20px;
   padding: 5px 10px;

@@ -1,10 +1,5 @@
 import RegisterBox from './common/RegisterBox';
-import {
-  RegisterContentWrapper,
-  RegisterInputWrapper,
-  RegisterTitleWrapper,
-} from './common/RegisterContent';
-// textarea로 Description 부분을 입력하는 컴포넌트 구성
+import { RegisterContentWrapper } from './common/RegisterContent';
 const RegisterDescription = ({ data, setData }) => {
   return (
     <RegisterBox title={'상품설명'}>

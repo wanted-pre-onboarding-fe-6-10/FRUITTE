@@ -10,15 +10,9 @@ import {
   RegisterTitleWrapper,
 } from './common/RegisterContent';
 import { RegisterInput } from './RegisterTitle';
-import Button from '../../../components/Button';
 
 const RegisterOption = ({ data, setData }) => {
   const [option, setOption] = useState({ productName: '', price: 0, quantity: 0 });
-  const columnData = [
-    { accessor: 'productName', Header: '옵션명' },
-    { accessor: 'price', Header: '옵션가격' },
-    { accessor: 'quantity', Header: '옵션수량' },
-  ];
   const onSubmit = e => {
     e.preventDefault();
     const ops = [...data.options, option];
@@ -80,7 +74,7 @@ const RegisterOption = ({ data, setData }) => {
           </RegisterButton>
         </RegisterContentWrapper>
       </OptionForm>
-      <RegisterOptionList columnData={columnData} options={data.options} />
+      <RegisterOptionList options={data.options} />
     </RegisterBox>
   );
 };

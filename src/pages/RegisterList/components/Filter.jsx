@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { lightTheme } from '../../../styles/theme';
+import Button from '../../../components/Button';
 
 const Filter = ({ productData, setProductData, getRequest }) => {
   const [filterValue, setFilterValue] = useState({ product: '', show: '' });
@@ -9,6 +9,7 @@ const Filter = ({ productData, setProductData, getRequest }) => {
     const { name, value } = e.target;
     setFilterValue(prev => ({ ...prev, [name]: value }));
   };
+
   const TitleSearch = () => {
     if (filterValue.product) {
       const filterData = productData.filter(data => {
@@ -41,10 +42,13 @@ const Filter = ({ productData, setProductData, getRequest }) => {
             id="productSearch"
             name="product"
             placeholder="상품명 검색"
+            style={{ padding: '4px 0' }}
             onChange={e => onChange(e)}
           />
         </LabelEl>
-        <SearchBtn onClick={TitleSearch}>검색</SearchBtn>
+        <Button size="small" onClick={TitleSearch}>
+          검색
+        </Button>
       </div>
       <div>
         <LabelEl htmlFor="statusFilter">
@@ -59,7 +63,7 @@ const Filter = ({ productData, setProductData, getRequest }) => {
             })}
           </SelectBox>
         </LabelEl>
-        <SearchBtn>검색</SearchBtn>
+        <Button size="small">검색</Button>
       </div>
       <div>
         <LabelEl htmlFor="show">
@@ -74,7 +78,9 @@ const Filter = ({ productData, setProductData, getRequest }) => {
             })}
           </SelectBox>
         </LabelEl>
-        <SearchBtn onClick={ShowSearch}>검색</SearchBtn>
+        <Button size="small" onClick={ShowSearch}>
+          검색
+        </Button>
       </div>
     </FilterBox>
   );
@@ -89,7 +95,7 @@ const FilterBox = styled.div`
   margin-bottom: 1.5rem;
   border: 0.6px solid black;
   border-radius: 5px;
-  background-color: ${lightTheme.ownColor};
+  background-color: lightgray;
 `;
 
 const LabelEl = styled.label`
@@ -103,13 +109,7 @@ const LabelEl = styled.label`
 
 const SelectBox = styled.select`
   width: 9rem;
-`;
-
-const SearchBtn = styled.button.attrs({ type: 'button' })`
-  background-color: lightgray;
-  padding: 5px 10px;
-  border: 0.7px solid black;
-  border-radius: 10%;
+  padding: 4px 0;
 `;
 
 export default Filter;

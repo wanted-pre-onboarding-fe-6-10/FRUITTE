@@ -4,9 +4,10 @@ import { lightTheme } from '../../styles/theme';
 import Pagination from '../../components/Pagination';
 import ProductItem from './components/ProductItem';
 import { chunk } from '../../utils/sliceArr';
+import LoginModal from '../../components/LoginModal';
 // import products from '../../api/data.json';
 
-const ProductList = () => {
+const ProductList = ({ toggle, onToggle }) => {
   const [products, setProducts] = useState([]);
   const [pageNum, setPageNum] = useState(0);
 
@@ -28,6 +29,7 @@ const ProductList = () => {
 
   return (
     <Container>
+      {toggle && <LoginModal onToggle={onToggle} />}
       <HeaderTextBox>
         FRUITTE STORE <span>{products.length}</span>
       </HeaderTextBox>
@@ -39,7 +41,6 @@ const ProductList = () => {
       <PaginationBox>
         <Pagination pageSliceArr={pageSliceArr} pageNum={pageNum} setPageNum={setPageNum} />
       </PaginationBox>
-      11
     </Container>
   );
 };
