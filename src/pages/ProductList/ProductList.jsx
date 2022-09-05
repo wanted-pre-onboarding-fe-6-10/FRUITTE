@@ -4,17 +4,24 @@ import { lightTheme } from '../../styles/theme';
 import Pagination from '../../components/Pagination';
 import ProductItem from './components/ProductItem';
 import { chunk } from '../../utils/sliceArr';
-import { getIsShowTrue } from '../../api/Api';
+// import products from '../../api/data.json';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [pageNum, setPageNum] = useState(0);
 
+  // useEffect(() => {
+  //   const getAllProducts = async () => {
+  //     setProducts(await getIsShowTrue());
+  //   };
+  //   getAllProducts();
+  // }, []);
   useEffect(() => {
-    const getAllProducts = async () => {
-      setProducts(await getIsShowTrue());
+    const getData = async () => {
+      const { products_list } = await fetch('/data.json').then(res => res.json());
+      setProducts(products_list);
     };
-    getAllProducts();
+    getData();
   }, []);
 
   const pageSliceArr = chunk(products, 10);
@@ -32,6 +39,7 @@ const ProductList = () => {
       <PaginationBox>
         <Pagination pageSliceArr={pageSliceArr} pageNum={pageNum} setPageNum={setPageNum} />
       </PaginationBox>
+      11
     </Container>
   );
 };
