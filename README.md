@@ -4,13 +4,15 @@
 
 - http://wanted610.s3-website.ap-northeast-2.amazonaws.com/
 
-## 사용자 아이디
+### 일반 사용자로 이용하기
 ```
 id : test@test.com
 password : test123!
 ```
+
 <br>
 
+### 관리자로 이용하기
 ```
 id : admin@admin.com
 password : admin123!
