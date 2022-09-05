@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { create } from '../../api/Api';
+import Button from '../../components/Button';
 import RegisterDescription from './components/RegisterDescription';
 import RegisterImage from './components/RegisterImage';
 import RegisterInfo from './components/RegisterInfo';
@@ -10,7 +12,7 @@ import RegisterTitle from './components/RegisterTitle';
 
 const Register = () => {
   const [data, setData] = useState({
-    id: '',
+    // id: '',
     img: [],
     title: '',
     price: 0,
@@ -30,10 +32,17 @@ const Register = () => {
     },
     isShow: true,
   });
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-  // console.log(data);
+  const onSubmit = e => {
+    e.preventDefault();
+    if (window.confirm('등록하시겠습니까?')) {
+      alert('등록이 완료됐습니다.');
+    } else {
+      alert('등록이 취소됐습니다.');
+    }
+
+    // create(data).then(res => alert('등록이 완료됐습니다.'));
+  };
+
   return (
     <Container>
       <Title>관리자 상품 등록 페이지</Title>
@@ -44,6 +53,9 @@ const Register = () => {
       <RegisterImage data={data} setData={setData} />
       <RegisterDescription data={data} setData={setData} />
       <RegisterInfo data={data} setData={setData} />
+      <Button size="large" onClick={onSubmit}>
+        등록하기
+      </Button>
     </Container>
   );
 };
