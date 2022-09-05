@@ -74,6 +74,7 @@ const GoodsForm = ({ data }) => {
       JSON.stringify({
         prodIdx: data.id,
         options: selectedItems,
+        thumbnail: data.img[0],
         delivery_fee: 0,
       })
     );
