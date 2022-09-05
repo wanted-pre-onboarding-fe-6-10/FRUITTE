@@ -139,7 +139,9 @@ const RegisterImage = ({ data, setData }) => {
   );
 };
 
-const UploadPic = styled.img.attrs({ src: `${process.env.PUBLIC_URL}/+.png` })`
+const UploadPic = styled.img.attrs({
+  src: `https://cdn-icons-png.flaticon.com/512/3018/3018447.png`,
+})`
   width: 150px;
   height: 150px;
   border: 1px solid;

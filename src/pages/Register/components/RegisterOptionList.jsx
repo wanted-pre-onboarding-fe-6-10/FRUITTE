@@ -11,19 +11,19 @@ const RegisterOptionList = ({ columnData, options }) => {
       <OptionListItem>
         <Title>옵션명</Title>
         {options.map((v, i) => (
-          <OptionContent>{v.productName}</OptionContent>
+          <OptionContent key={i}>{v.productName}</OptionContent>
         ))}
       </OptionListItem>
       <OptionListItem>
         <Title>가격</Title>
         {options.map((v, i) => (
-          <OptionContent>{v.price}</OptionContent>
+          <OptionContent key={i}>{v.price}</OptionContent>
         ))}
       </OptionListItem>
       <OptionListItem>
         <Title>수량</Title>
         {options.map((v, i) => (
-          <OptionContent>{v.quantity}</OptionContent>
+          <OptionContent key={i}>{v.quantity}</OptionContent>
         ))}
       </OptionListItem>
     </OptionListBox>
