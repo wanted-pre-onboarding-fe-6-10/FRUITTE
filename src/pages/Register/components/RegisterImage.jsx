@@ -2,11 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import RegisterBox from './common/RegisterBox';
 import RegisterModal from './RegisterModal';
-import {
-  RegisterContentWrapper,
-  RegisterInputWrapper,
-  RegisterTitleWrapper,
-} from './common/RegisterContent';
+import { RegisterTitleWrapper } from './common/RegisterContent';
 // 이미지 등록하고 미리보기 볼 수 있는 컴포넌트
 const RegisterImage = ({ data, setData }) => {
   const [imgUrls, setImgUrls] = useState([]);
@@ -139,7 +135,9 @@ const RegisterImage = ({ data, setData }) => {
   );
 };
 
-const UploadPic = styled.img.attrs({ src: `${process.env.PUBLIC_URL}/+.png` })`
+const UploadPic = styled.img.attrs({
+  src: `https://cdn-icons-png.flaticon.com/512/3018/3018447.png`,
+})`
   width: 150px;
   height: 150px;
   border: 1px solid;

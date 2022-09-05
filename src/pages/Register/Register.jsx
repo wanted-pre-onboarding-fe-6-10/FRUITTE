@@ -39,7 +39,7 @@ const Register = () => {
     } else {
       alert('등록이 취소됐습니다.');
     }
-
+    console.log(data);
     // create(data).then(res => alert('등록이 완료됐습니다.'));
   };
 
