@@ -23,20 +23,14 @@ const StoreInfo = () => {
             <UnderLine>
               <Font14>문의 안내</Font14>
             </UnderLine>
-            <Ptag>
-              <Font14>카카오톡채널: 프루떼</Font14>
-            </Ptag>
-            <Ptag>
-              <Font14>(주중 9시~18시 채팅 상담 가능)</Font14>
-            </Ptag>
+            <Font14>카카오톡채널: 프루떼</Font14>
+            <Font14>(주중 9시~18시 채팅 상담 가능)</Font14>
           </ContactBox>
           <ContactBox>
             <UnderLine>
               <Font14>무통장 입금 계좌 안내</Font14>
             </UnderLine>
-            <Ptag>
-              <Font14>국민은행 527837-01-004676 주식회사 로컬앤라이프</Font14>
-            </Ptag>
+            <Font14>국민은행 527837-01-004676 주식회사 로컬앤라이프</Font14>
           </ContactBox>
         </ContactInfo>
         <NavInfo>
@@ -120,12 +114,10 @@ const NavTagLink = styled.a`
   padding: 10px 0;
 `;
 
-const UnderLine = styled.p`
+const UnderLine = styled.div`
   text-decoration: underline;
   font-weight: 400;
 `;
-
-const Ptag = styled.p``;
 
 const Font16 = styled.div`
   font-size: 16px;
