@@ -71,11 +71,14 @@ const GoodsForm = ({ data }) => {
   };
 
   const handlePurchaseButtonClick = () => {
-    sessionStorage.setItem(`PROD_SELECTED_OPTION_${data.id}`, {
-      prodIdx: data.id,
-      options: selectedItems,
-      delivery_fee: 0,
-    });
+    sessionStorage.setItem(
+      `PROD_SELECTED_OPTION_${data.id}`,
+      JSON.stringify({
+        prodIdx: data.id,
+        options: selectedItems,
+        delivery_fee: 0,
+      })
+    );
     navigate('/order');
   };
 
@@ -91,8 +94,8 @@ const GoodsForm = ({ data }) => {
           {data.status.isSoldout && <Status sold>SOLDOUT</Status>} */}
           {data.status.isDiscount ? <SaleBadge>SALE</SaleBadge> : null}
           {data.status.isBest ? <BestBadge>BEST</BestBadge> : null}
-          {data.status.isPending ? <PendingBadge>판매대기</PendingBadge> : null}
-          {data.status.isRecommend ? <RecommendBadge>MD</RecommendBadge> : null}
+          {!data.status.isPending ? <PendingBadge>판매대기</PendingBadge> : null}
+          {!data.status.isRecommend ? <RecommendBadge>MD</RecommendBadge> : null}
           {data.status.isSoldout ? <SoldoutBadge>SOLDOUT</SoldoutBadge> : null}
           {/* <Badge>{data.status.map((item, idx) => {})}</Badge> */}
         </BadgeWrapper>
