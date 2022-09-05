@@ -4,6 +4,8 @@ import Payment from './components/Payment';
 import ProductInfo from './components/Product';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import TotalPrice from './components/TotalPrice';
 
 // order-content dummy data
 const OrderContentDummy = {
@@ -18,7 +20,7 @@ const OrderContentDummy = {
     isDiscount: true,
   },
   payment_info: {
-    method: true, // true = 카드결제, false = 무통장입금
+    method: false, // true = 카드결제, false = 무통장입금
     total: 16800,
     card: '1234 5678 9101 1121',
     account: {
@@ -33,7 +35,7 @@ const OrderContentDummy = {
     isRegistered: false, // true = 회원, false = 비회원
   },
   shipping: {
-    postcode: 1234,
+    postcode: '08053',
     method: '택배',
     address: '서울시 양천구 신정3동 신정로7길 60-7',
     detail: '402 - 701',
@@ -43,14 +45,25 @@ const OrderContentDummy = {
 
 const OrderContent = () => {
   const navigate = useNavigate();
+  const [orderData, setOrderData] = useState([]);
+
+  const getOrderData = () => {
+    const data = JSON.parse(sessionStorage.getItem('orderData'));
+    setOrderData(data);
+  };
+
+  useEffect(() => {
+    getOrderData();
+  }, []);
 
   return (
     <Container>
       <OrderTitle orderInfo={OrderContentDummy} />
       <ProductInfo orderInfo={OrderContentDummy} />
+      <TotalPrice orderInfo={OrderContentDummy} />
       <Payment orderInfo={OrderContentDummy} />
       <Shipping orderInfo={OrderContentDummy} />
-      <RedirectButton onClick={() => navigate('/')}>홈으로</RedirectButton>
+      <RedirectButton onClick={() => navigate('/fruitstore')}>홈으로</RedirectButton>
     </Container>
   );
 };
@@ -59,15 +72,31 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${props => props.theme.subBoxColor};
 `;
 
 const RedirectButton = styled.button`
   width: 40%;
+  height: 50px;
   background-color: ${props => props.theme.ownColor};
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: -1px;
+  margin-bottom: 20px;
+  border: none;
   color: ${props => props.theme.boxColor};
-  margin: 10px;
+  cursor: pointer;
   &:hover {
     background-color: ${props => props.theme.ownColorHover};
+  }
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
   }
 `;
 

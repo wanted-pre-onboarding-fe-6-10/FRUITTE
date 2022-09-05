@@ -4,8 +4,8 @@ import styled from 'styled-components';
 function ResposiveNav() {
   return (
     <ResposiveNavContainer>
-      <NavTagLink href="/fruitstore">
-        <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
+      <NavTagLink href="/">
+        <NavTagTitle checkPathname={checkPathname('/')}>FRUIT STORE</NavTagTitle>
       </NavTagLink>
       <NavTagLink href="/register">
         <NavTagTitle checkPathname={checkPathname('/register')}>ADMIN</NavTagTitle>

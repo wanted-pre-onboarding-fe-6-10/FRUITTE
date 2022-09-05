@@ -46,7 +46,7 @@ const IconBox = styled.div`
   display: flex;
   width: 100px;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 10px;
 `;
 const TextBox = styled.div`
   font-size: 12px;

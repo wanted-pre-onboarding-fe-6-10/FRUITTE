@@ -149,7 +149,22 @@ const ImgBnt = styled.label`
   padding: 12px 19px;
   border-radius: 30px;
 `;
-
+export const Select = styled.select`
+  font-size: 14px;
+  line-height: 19px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid ${props => props.theme.subBgColor};
+  box-sizing: border-box;
+  padding: 8px 16px;
+  border-radius: 5px;
+  @media screen and (max-width: 499px) {
+    font-size: 12px;
+  }
+  &::placeholder {
+    color: ${props => props.theme.subBgColor};
+  }
+`;
 export const MultiImgInput = forwardRef((props, ref) => {
   const [images, setImages] = useState([]);
   const [imageURLS, setImageURLs] = useState([]);

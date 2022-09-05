@@ -4,6 +4,16 @@ import ResposiveNav from './ResposiveNav';
 const Nav = ({ onToggle }) => {
   const user = localStorage.getItem('who');
 
+  const onLogout = () => {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm('로그아웃 하시겠습니까?') === true) {
+      localStorage.removeItem('who');
+      window.location.replace('/');
+    } else {
+      return;
+    }
+  };
+
   return (
     <>
       <Container>
@@ -15,8 +25,8 @@ const Nav = ({ onToggle }) => {
           </LogoBox>
           <NavTagBox>
             <NavTagWrapper>
-              <NavTagLink href="/fruitstore">
-                <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
+              <NavTagLink href="/">
+                <NavTagTitle checkPathname={checkPathname('/')}>FRUIT STORE</NavTagTitle>
               </NavTagLink>
             </NavTagWrapper>
             {user === 'admin' && (
@@ -29,10 +39,12 @@ const Nav = ({ onToggle }) => {
           </NavTagBox>
           <AuthBox>
             <AuthWrapper>
-              {!user && (
+              {!user ? (
                 <>
                   <Auth onClick={onToggle}>login</Auth> <Auth>join</Auth>
                 </>
+              ) : (
+                <Auth onClick={onLogout}>logout</Auth>
               )}
             </AuthWrapper>
           </AuthBox>

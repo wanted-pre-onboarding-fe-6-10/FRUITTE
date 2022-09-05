@@ -25,7 +25,6 @@
         <td height="140px" align="center"> <a href="https://github.com/seungyeonchoo">
             <img src="https://avatars.githubusercontent.com/seungyeonchoo" width="140px" /> <br> 추승연 </a> <br></td>
     </tr>
-    <tr>
 <tr>
         <td align="center">공통 컴포넌트 구현</td>
         <td align="center">상품 상세 페이지 구현</td>
@@ -34,7 +33,6 @@
         <td align="center">상품 목록 페이지 구현</td>
         <td align="center">주문하기 페이지 구현</td>
         <td align="center">주문완료 페이지 구현</td>
-    </tr>
     </tr>
 </table>
 <br>
@@ -298,6 +296,7 @@
 
 - useNavigate를 활용해 '홈으로' 버튼 클릭 시 상품조회 페이지로 이동
 
+
 ### UI 관련
 
 - 반응형 UI 적용
@@ -361,6 +360,57 @@
 ###
 
 </details>
+## 상품 상세 페이지
+
+### 개요
+
+- 상품 상세 페이지 상단에 홈, 상품목록 홈으로 돌아갈 수 있는 링크
+- 상품 이미지 랜더링, 하단에는 thumbnail로 디스플레이 (가로 스크롤)
+  - 이미지 클릭시 상단 메인이미지로 크게 뜨도록 동작처리
+- 상품 정보: 제목, 요약설명, 원산지, 배송방법, 배송비, 옵션, 판매불가여부, 총 금액, 구매버튼 등을 구현
+- 옵션값 조정에 따라 상품 총 금액이 각 옵션탭 별, 총 상품금액에 반영이 되도록 처리
+
+### 상품 상태에 따른 분기처리
+
+- 상품 설명:
+  - 상품 status(할인중상품, 베스트상품, 품절상품, 추천상품, 판매대기상품)에 따라 뱃지
+    ![image](https://user-images.githubusercontent.com/96093461/188343854-4de12775-5c93-43c7-a506-2f46d3fe7419.png)
+- 옵션이 하나인 상품: 옵션 선택 드랍다운 없이 바로 1개의 수량 선택, 옵션 삭제 버튼 생략
+- 판매대기인 상품: 네이버페이 부분 제거 및 버튼 비활성화
+- 품절 옵션이 포함된 상품: 해당 옵션은 선택이 안되도록 처리
+  - 품절 항목의 텍스트는 strike 처리
+    <br><img width="200" alt="Screen Shot 2022-09-05 at 10 40 42 AM" src="https://user-images.githubusercontent.com/96093461/188343920-ad0ab35b-d11c-4b78-a2ee-a710e896cc4f.png">
+- 재고에 따른 주문가능 수량 제한: 상품 옵션 선택 시 수량이 기본으로 1로 들어가고, **≥1개 이상** **≤재고수량 이하**의 값을 조정할 수 있는 버튼 구현
+- 중복된 상품 옵션 선택 시: '이미 선택한 옵션입니다'라는 메세지 출력
+- 옵션 선택 삭제 버튼: 경고 안내창을 띄워준 뒤 제거 처리, 총 주문수량 및 총 가격에도 반영
+
+### 상품 정보 탭
+
+- hash link로 해당 탭 클릭 시 대응되는 부분으로 스크롤 되도록 처리
+- sticky position으로 탭을 상단에 고정
+
+### 구매하기 버튼 클릭 시
+
+- sessionStorage에 `PROD_SELECTED_OPTION_<상품id>` key값으로 구매정보(상품id, 선택옵션, 배송비) 저장
+
+```
+{
+  delivery_fee: 0
+  options: [
+    {opIdx: 1, option: "4kg", quantity: 3, priceSum: 92000},
+    {opIdx: 0, option: "2kg", quantity: 1, priceSum: 52000}
+  ]
+  prodIdx: "5"
+}
+```
+
+- '구매하기' 페이지로 라우팅
+
+### UI 관련
+
+- 반응형 UI 적용
+- 공통 컴포넌트 활용
+
 <br>
 
 > ## 미구현 내용
@@ -383,6 +433,7 @@
 > ## Git
 
 - ### [Git branch 전략](https://github.com/wanted-pre-onboarding-fe-6-10/FRUITTE/wiki/%EA%B9%83-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5)
+
 - ### [커밋 컨벤션](https://github.com/wanted-pre-onboarding-fe-6-10/FRUITTE/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98)
 
 <br>

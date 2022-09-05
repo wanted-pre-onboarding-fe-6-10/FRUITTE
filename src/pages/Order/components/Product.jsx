@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import OrderOption from './OrderOption';
+import addComma from '../../../utils/addComma';
 const Product = ({ product }) => {
   return (
-    <ProductBox>
+    <ProductBox href={'/fruitstore/' + product.id}>
       <ProductImage src={product.img[0]} />
       <InfoWrapper>
         <Text>{product.title}</Text>
         <OrderOption optionList={product.options} option={product.option} />
-        <Text>{product.price}원</Text>
+        <Text>{addComma(product.price)}원</Text>
       </InfoWrapper>
     </ProductBox>
   );
@@ -15,14 +16,13 @@ const Product = ({ product }) => {
 
 // styled-components 위치
 const ProductImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  margin-right: 30px;
 `;
 const InfoWrapper = styled.div``;
-const ProductBox = styled.div`
-  padding: 2px;
-  margin: 1px;
-  border: 1px solid;
+const ProductBox = styled.a`
+  margin: 15px;
   color: ${props => props.theme.ownColor};
   display: flex;
   flex-direction: row;

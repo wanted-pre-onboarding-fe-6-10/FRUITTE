@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import addComma from '../../../utils/addComma';
 
 const ProductInfo = ({ orderInfo }) => {
   const productInfo = orderInfo.product;
@@ -6,21 +7,14 @@ const ProductInfo = ({ orderInfo }) => {
   const productName = productInfo.name;
   const isDiscount = productInfo.isDiscount;
   const discount = isDiscount ? productInfo.discount : productInfo.price;
-  const commaReg = /\B(?=(\d{3})+(?!\d))/g;
-  const productPrice = discount.toString().replace(commaReg, ',') + '원';
-  const deliveryFee = productInfo.delivery_fee.toString().replace(commaReg, ',') + '원';
-  const totalPrice = (discount + productInfo.delivery_fee).toString().replace(commaReg, ',') + '원';
 
   return (
     <ProductBox>
       <ProductImage src={productImg} />
       <Wrapper>
         <Text>{productName}</Text>
-        <SubText>옵션: {productInfo.option}</SubText>
-        <Text bold="bold">총 주문금액 : {totalPrice}</Text>
-        <SubText>
-          상품금액: {productPrice} + 배송비: {deliveryFee}
-        </SubText>
+        <SubText>{productInfo.option}</SubText>
+        <SubText>상품금액: {addComma(discount) + '원'}</SubText>
       </Wrapper>
     </ProductBox>
   );
@@ -28,33 +22,46 @@ const ProductInfo = ({ orderInfo }) => {
 
 const ProductBox = styled.div`
   width: 40%;
+  padding: 1em;
   display: flex;
   justify-content: center;
   border: ${props => `1px solid ${props.theme.borderColor}`};
+  background-color: ${props => props.theme.bgColor};
+  @media (max-width: 650px) {
+    width: 100%;
+  }
+  @media (min-width: 650px) and (max-width: 800px) {
+    width: 80%;
+  }
+  @media (min-width: 800px) and (max-width: 1180px) {
+    width: 60%;
+  }
 `;
 
 const Wrapper = styled.div`
   width: 75%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 10px;
 `;
 
 const Text = styled.h1`
   color: ${props => props.theme.textColor};
   font-weight: ${props => props.bold};
+  font-size: 1em;
 `;
 
 const SubText = styled.h1`
   color: ${props => props.theme.subTextColor};
-  font-size: 0.8em;
+  font-size: 0.9em;
 `;
 
 const ProductImage = styled.img.attrs(props => ({
   src: props.src,
 }))`
   width: 25%;
-  margin: 10px;
+  padding: 10px;
 `;
 
 export default ProductInfo;

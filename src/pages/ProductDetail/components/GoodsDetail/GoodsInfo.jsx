@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const GoodsInfo = () => {
   return (
     <Wrapper id="prod_detail_detail">
-      <InfoImage></InfoImage>
-      <Table></Table>
+      <InfoImage />
+      <Table />
     </Wrapper>
   );
 };
