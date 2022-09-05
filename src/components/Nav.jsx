@@ -25,8 +25,8 @@ const Nav = ({ onToggle }) => {
           </LogoBox>
           <NavTagBox>
             <NavTagWrapper>
-              <NavTagLink href="/fruitstore">
-                <NavTagTitle checkPathname={checkPathname('/fruitstore')}>FRUIT STORE</NavTagTitle>
+              <NavTagLink href="/">
+                <NavTagTitle checkPathname={checkPathname('/')}>FRUIT STORE</NavTagTitle>
               </NavTagLink>
             </NavTagWrapper>
             {user === 'admin' && (
