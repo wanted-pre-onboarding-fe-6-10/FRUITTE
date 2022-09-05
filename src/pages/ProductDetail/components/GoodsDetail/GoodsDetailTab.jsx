@@ -4,7 +4,7 @@ import GoodsInfo from './GoodsInfo';
 import GoodsQna from './GoodsQna';
 import GoodsReview from './GoodsReview';
 
-const GoodsDetailTab = () => {
+const GoodsDetailTab = ({ reviewCnt = 0, qnaCnt = 0 }) => {
   const [focus, setFocus] = useState(0);
 
   return (
@@ -15,10 +15,10 @@ const GoodsDetailTab = () => {
           상세정보
         </Tab>
         <Tab href="#prod_detail_review" focused={focus === 1} onClick={() => setFocus(1)}>
-          구매평<CountIndex>({'0'})</CountIndex>
+          구매평<CountIndex>({reviewCnt})</CountIndex>
         </Tab>
         <Tab href="#prod_detail_qna" focused={focus === 2} onClick={() => setFocus(2)}>
-          Q&A<CountIndex>({'0'})</CountIndex>
+          Q&A<CountIndex>({qnaCnt})</CountIndex>
         </Tab>
         {/* <Tab onClick={() => navigate({ path: '/#prod_detail_review', search: '?idx=123' })}> */}
       </Tabs>
