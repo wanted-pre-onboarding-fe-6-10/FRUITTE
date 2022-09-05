@@ -8,7 +8,9 @@ const StoreInfo = () => {
           <Title>
             <Strong>About Fruitte</Strong>
           </Title>
-          <UnderLine>프루떼는</UnderLine>
+          <UnderLine>
+            <Font16>프루떼는</Font16>
+          </UnderLine>
           <Font14>
             (프루떼는 프로젝트프룻의 새 이름입니다) 프루떼는 안전한 먹거리의 신념을 지키는 좋은
             농장을 발굴하고 소개하는 팜큐레이터입니다. 건강한 자연을 가까이에서 만날 수 있는
@@ -125,8 +127,17 @@ const UnderLine = styled.p`
 
 const Ptag = styled.p``;
 
+const Font16 = styled.div`
+  font-size: 16px;
+  margin-bottom: 12px;
+  @media only screen and (max-width: 1024px) {
+    font-size: 12px;
+  }
+`;
+
 const Font14 = styled.div`
   font-size: 14px;
+  margin-bottom: 12px;
   @media only screen and (max-width: 1024px) {
     font-size: 12px;
   }
@@ -140,6 +151,9 @@ const Title = styled.div`
 `;
 
 const Strong = styled.strong`
+  display: inline-block;
+  margin-bottom: 20px;
+
   @media only screen and (max-width: 1024px) {
     font-weight: 400;
   }
