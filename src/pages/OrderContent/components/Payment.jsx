@@ -27,7 +27,7 @@ const Payment = ({ orderInfo }) => {
 const PaymentBox = styled.div`
   width: 40%;
   height: 100%;
-  margin: 1em 0;
+  margin: 0.5em 0;
   display: flex;
   flex-direction: column;
   border: ${props => `1px solid ${props.theme.borderColor}`};
@@ -46,6 +46,7 @@ const PaymentBox = styled.div`
 const Text = styled.h2`
   color: ${props => props.theme.highlightColor};
   font-size: 0.8em;
+  margin-top: -1em;
   padding: 0 2em 0.5em 4em;
 `;
 

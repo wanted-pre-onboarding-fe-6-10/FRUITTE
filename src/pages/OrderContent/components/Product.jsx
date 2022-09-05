@@ -16,7 +16,6 @@ const ProductInfo = ({ orderInfo }) => {
       <Wrapper>
         <Text>{productName}</Text>
         <SubText>{productInfo.option}</SubText>
-        <Text bold="bold">총 주문금액 : {addComma(totalPrice) + '원'}</Text>
         <SubText>상품금액: {addComma(discount) + '원'}</SubText>
         <SubText>배송비: {addComma(deliveryFee) + '원'}</SubText>
       </Wrapper>

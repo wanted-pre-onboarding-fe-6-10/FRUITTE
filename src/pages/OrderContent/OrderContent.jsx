@@ -4,6 +4,9 @@ import Payment from './components/Payment';
 import ProductInfo from './components/Product';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import InfoMenu from './components/InfoMenu';
+import TotalPrice from './components/TotalPrice';
 
 // order-content dummy data
 const OrderContentDummy = {
@@ -43,11 +46,22 @@ const OrderContentDummy = {
 
 const OrderContent = () => {
   const navigate = useNavigate();
+  const [orderData, setOrderData] = useState([]);
+
+  const getOrderData = () => {
+    const data = JSON.parse(sessionStorage.getItem(''));
+    setOrderData(data);
+  };
+
+  useEffect(() => {
+    getOrderData();
+  }, []);
 
   return (
     <Container>
       <OrderTitle orderInfo={OrderContentDummy} />
       <ProductInfo orderInfo={OrderContentDummy} />
+      <TotalPrice orderInfo={OrderContentDummy} />
       <Payment orderInfo={OrderContentDummy} />
       <Shipping orderInfo={OrderContentDummy} />
       <RedirectButton onClick={() => navigate('/fruitstore')}>홈으로</RedirectButton>
