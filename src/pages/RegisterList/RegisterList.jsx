@@ -46,13 +46,13 @@ const RegisterList = () => {
 
       <Table>
         <tbody>
-          <tr>
+          <HeadTr>
             {TITLES.map((data, idx) => (
               <TableTitle key={idx} width={data.width}>
                 {data.title}
               </TableTitle>
             ))}
-          </tr>
+          </HeadTr>
           {manufacturedData.map((data, idx) => {
             if (data.type === 'product') {
               return <ProductTable key={idx} data={data} setProductData={setProductData} />;
@@ -78,6 +78,10 @@ const Container = styled.div`
 const Table = styled.table`
   width: 100%;
   border: 1px solid black;
+`;
+
+const HeadTr = styled.tr`
+  background-color: ${lightTheme.ownColor};
 `;
 
 const TableTitle = styled.td`
